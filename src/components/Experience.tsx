@@ -1,11 +1,16 @@
 import { useState, useEffect } from "react";
 import { Card, CardContent } from "@/components/ui/card";
-import { Award, Download, FileText, Clock, ChevronRight, Star, ExternalLink, Mail, Calendar, CheckCircle, GraduationCap, Sparkles, Code, Briefcase, Users, Upload
+import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
+import {
+  Award, Download, FileText, Clock, ChevronRight, Star, ExternalLink, Mail, Calendar, CheckCircle, GraduationCap, Sparkles, Code, Briefcase, Users, Upload, ArrowRight
 } from "lucide-react";
-import websiteImg from '../img/summer kart.webp';
-import blogimage from '../img/blog.webp';
-import safety from '../img/ai safety.webp';
-import currency from '../img/currency.webp';
+import resumeThumb from '../img/kuldeep02-1.webp';
+import aiSafety from '../img/ai safety.webp';
+import blogImg from '../img/blog.webp';
+import currencyImg from '../img/currency.webp';
+import summerKart from '../img/summer kart.webp';
+import websiteImg from '../img/profile.webp';
 // Achievement data
 const achievements = [
   {
@@ -14,7 +19,7 @@ const achievements = [
     date: "November 2023",
     description: "Recognized for contributions to open-source ML frameworks and innovative deployments in production environments.",
     link: "#",
-    icon: <Award />
+    image: currencyImg
   },
   {
     title: "1st Place Hackathon Winner",
@@ -22,7 +27,7 @@ const achievements = [
     date: "June 2022",
     description: "Led a team of 4 developers to create an AI-powered accessibility tool that won first place among 200+ international teams.",
     link: "#",
-    icon: <Trophy />
+    image: summerKart
   },
   {
     title: "Published Research Paper",
@@ -30,7 +35,7 @@ const achievements = [
     date: "August 2021",
     description: "Research on optimization techniques for deep learning models was published and cited in over 30 subsequent papers.",
     link: "#",
-    icon: <FileText />
+    image: blogImg
   },
   {
     title: "Open Source Contributor",
@@ -38,7 +43,7 @@ const achievements = [
     date: "2020 - Present",
     description: "Core contributor with 50+ accepted pull requests improving performance and adding new features.",
     link: "#",
-    icon: <Code />
+    image: aiSafety
   }
 ];
 
@@ -51,7 +56,8 @@ const certifications = [
     expires: "May 2024",
     credentialId: "CSW2024-13223",
     link: "https://www.dropbox.com/scl/fi/irwo2ehn9qm5vyjyne9k3/cipher_school-java-summer-term.pdf?rlkey=qjlajrwuzxr94d8q823kec7be&st=71o9a1p5&dl=0",
-    color: "blue"
+    color: "blue",
+    image: currencyImg
   },
   {
     title: "Hackaton ",
@@ -60,7 +66,8 @@ const certifications = [
     expires: "feb 2025",
     credentialId: "WEB-E-2025-12345",
     link: "https://www.dropbox.com/scl/fi/zmbb3jv3qmw3uffiaav0l/web-e-stand.pdf?rlkey=1ixxyburv2ci7jfjtrh859fqm&st=7johk0h5&dl=0",
-    color: "green"
+    color: "green",
+    image: summerKart
   },
   {
     title: "TensorFlow Developer Certificate",
@@ -69,7 +76,8 @@ const certifications = [
     expires: "N/A (Non-expiring)",
     credentialId: "TF-DEV-345678",
     link: "#",
-    color: "orange"
+    color: "orange",
+    image: aiSafety
   },
   {
     title: "Microsoft Certified: Azure DevOps Engineer Expert",
@@ -78,7 +86,8 @@ const certifications = [
     expires: "November 2024",
     credentialId: "MS-ADOE-901234",
     link: "#",
-    color: "indigo"
+    color: "indigo",
+    image: blogImg
   },
   {
     title: "Certified Kubernetes Administrator (CKA)",
@@ -87,7 +96,34 @@ const certifications = [
     expires: "March 2024",
     credentialId: "CKA-567890",
     link: "#",
-    color: "purple"
+    color: "purple",
+    image: summerKart
+  }
+];
+
+// Projects data
+const projects = [
+  {
+    title: "Individual Look: Luxury Experience",
+    tech: "React, Framer Motion, 3D",
+    description: "The Audi A4 luxury sedan stands out with its broad wings, striking sill trims, and distinctive wheels. This digital experience brings that refinement to life with LED lighting effects and trapezoid tailpipe highlights, emphasizing a strong and elegant presence.",
+    link: "https://github.com/kuldeep456789",
+    image: websiteImg,
+    featured: true
+  },
+  {
+    title: "Summer Kart - E-commerce",
+    tech: "React, Node.js, MongoDB",
+    description: "A full-stack e-commerce platform with real-time inventory management and secure payment integration.",
+    link: "https://github.com/kuldeep456789",
+    image: summerKart
+  },
+  {
+    title: "AI Safety Monitor",
+    tech: "Python, TensorFlow, Flask",
+    description: "Machine learning model to detect and flag potential safety risks in real-time communication streams.",
+    link: "https://github.com/kuldeep456789",
+    image: aiSafety
   }
 ];
 
@@ -98,42 +134,7 @@ const colorMap = {
   green: { bg: "from-green-600/30 to-blue-600/30", tagBg: "bg-green-900/30", text: "text-green-300", hover: "hover:text-green-300" },
 };
 
-// Updated the project cards to allow adding an image instead of an icon
-const projects = [
-  {
-    title: "Currency Convertor",
-    description: "Currency converter quickly converts amounts between different international currencies in real-time.",
-    tags: ["React", "Api", "Currency Convertor"],
-    link: "https://currency-convertor-taupe-ten.vercel.app/",
-    color: "blue",
-    // image: require('../img/real-time-tracking.jpg').default // Fix for require with ES modules
-    image: currency
-  },
-  {
-    title: "Blog Editor Save and Draft",
-    description: "Is based on your Blog editing , save draft, and published over the internet",
-    tags: ["React.js", "Docker", "flask", "Django"],
-    link: "https://blog-create-6huw.vercel.app/",
-    color: "cyan",
-    image: blogimage
-  },
-  {
-    title: "Ai Safety Watchtower Dashboard",
-    description: "Library for optimizing deep learning model performance on edge devices.",
-    tags: ["React", "Typescript", "vite"],
-    link: "https://ai-safety-watchtower-dashboard.vercel.app/",
-    color: "purple",
-    image: safety
-  },
-  {
-    title: "Summer collection",
-    description: "Zero-trust architecture implementation with real-time threat monitoring.",
-    tags: ["React", "Typescript", "vite"],
-    link: "https://summerkart.vercel.app/",
-    color: "green",
-    image: websiteImg
-  }
-];
+// Achievements, Certifications, and Resume tabs are handled below
 
 
 
@@ -159,118 +160,109 @@ const AnimatedBackground = () => {
 };
 
 
-
-// Enhanced Resume Preview Card with better hover effects
-const ResumePreview = ({ onDownload, onUpload }) => {
-  const [profileImage, setProfileImage] = useState(null);
+// Professional Resume Preview Component
+const ResumePreview = () => {
   return (
-    <div className="relative bg-gray-900/60 border border-gray-700/50 rounded-lg p-6 backdrop-blur-sm mb-8 group hover:shadow-lg hover:shadow-blue-900/30 transition-all duration-300" style={{ height: 'auto', minHeight: '300px' }}>
-      <div className="absolute -top-3 -right-3 flex gap-2">
-      </div>
-      <div className="flex flex-col md:flex-row items-start gap-6">
-        <div className="flex-1">
-          <h3 className="text-xl font-bold text-white mb-2">Resume</h3>
-          <p className="text-gray-300 mb-4">
-          Hi Myself kuldeep Prajapati , I am recently pursuing a B.Tech Degree at Lovely Professional University in Punjab,
-          i Speclised in Machine learning and Artfical Engineering and Devops
-          A resume is made to present your skills, education, experiences, 
-          and achievements in a clear and professional way. 
-          It acts as a marketing tool that introduces you to employers, 
-          helping them quickly see why you're a good fit for a job. 
-          A strong resume increases your chances of getting shortlisted for interviews.</p>
-          <a
-            href="https://www.dropbox.com/scl/fi/azp1jegvrywvefpkwvmj3/updated-cv.pdf?rlkey=gdtqxcx3elftv4hipb386dg8x&dl=0"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block px-6 py-3 bg-gray-800 text-white border border-gray-700/50 rounded-lg shadow-sm hover:shadow-xl hover:bg-gray-700/70 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500/50"
-          >
-            Click Me
-          </a>
+    <motion.div
+      initial={{ opacity: 0, scale: 0.95 }}
+      animate={{ opacity: 1, scale: 1 }}
+      className="max-w-4xl mx-auto mt-12 group"
+    >
+      <div className="relative rounded-[32px] overflow-hidden bg-[#1E293B]/40 border border-white/10 shadow-2xl transition-all duration-700 hover:border-blue-500/30">
+        {/* Hover Overlay for "Ready for Hire" */}
+        <div className="absolute inset-x-0 top-0 z-20 flex justify-center p-8 opacity-0 group-hover:opacity-100 transition-all duration-500 transform -translate-y-4 group-hover:translate-y-0">
+          <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-green-500/10 border border-green-500/20 backdrop-blur-md">
+            <span className="relative flex h-3 w-3">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+            </span>
+            <span className="text-green-400 font-bold tracking-widest uppercase text-xs">Ready for Hire</span>
+          </div>
+        </div>
 
+        {/* Premium Image Container */}
+        <div className="relative aspect-[1/1.414] overflow-hidden cursor-zoom-in">
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0B0D11] via-transparent to-transparent opacity-60 z-10" />
+          <img
+            src={resumeThumb}
+            alt="Resume"
+            className="w-full h-auto object-contain transform transition-transform duration-1000 group-hover:scale-105"
+          />
+
+          {/* Quick Actions Hover */}
+          <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity z-20">
+            <a
+              href={resumeThumb}
+              target="_blank"
+              className="px-8 py-3 rounded-full bg-white text-black font-bold flex items-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500 hover:bg-blue-500 hover:text-white"
+            >
+              <ExternalLink className="w-4 h-4" />
+              View Full Size
+            </a>
+          </div>
         </div>
       </div>
-    </div>
+
+      {/* Action Footer */}
+      <div className="mt-8 flex justify-center gap-4">
+        <a
+          href={resumeThumb}
+          download
+          className="flex items-center gap-2 px-8 py-4 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold hover:shadow-[0_0_30px_rgba(37,99,235,0.3)] transition-all active:scale-95"
+        >
+          <Download className="w-5 h-5" />
+          Download Resume
+        </a>
+      </div>
+    </motion.div>
   );
 };
 
 
 
 
-
-
-// Updated FeaturedProjects component to include mobile view styling
-const FeaturedProjects = () => {
+const Achievements = () => {
   return (
-    <div className="mb-12 backdrop-blur-sm bg-[#323845]/70 border border-gray-700/50 rounded-lg p-6 hover:shadow-xl hover:shadow-blue-900/20 transition-all duration-300">
-      <h3 className="text-2xl font-bold text-white mb-6 flex items-center">
-        <Star className="mr-3 text-blue-400" />
-        Projects
-      </h3>
-
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-        {projects.map((project, index) => (
-          <div key={index} className="bg-gray-800/60 rounded-lg overflow-hidden hover:bg-gray-800/80 transition-all duration-300 group">
-            <div className="h-32 relative">
-              <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16 mt-12 px-2">
+      {achievements.map((achievement, index) => (
+        <motion.div
+          key={index}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: index * 0.1 }}
+          className="group cursor-pointer"
+        >
+          <div className="aspect-[16/10] overflow-hidden rounded-[24px] mb-6 bg-gradient-to-br from-[#1E293B] to-[#0F172A] border border-white/5 flex items-center justify-center relative group-hover:border-white/10 transition-all duration-500">
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-from)_0%,_transparent_70%)] from-yellow-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <div className="w-full h-full overflow-hidden transform transition-transform duration-700 group-hover:scale-110">
+              <img src={achievement.image} alt={achievement.title} className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" />
             </div>
-            <div className="p-5">
-              <h4 className={`text-lg font-semibold text-white mb-2 group-hover:text-${project.color}-300 transition-colors`}>{project.title}</h4>
-              <p className="text-gray-300 text-sm mb-3">{project.description}</p>
-              <div className="flex flex-wrap gap-2 mb-4">
-                {project.tags.map((tag, tagIndex) => (
-                  <span key={tagIndex} className={`px-2 py-1 bg-${project.color}-900/30 text-${project.color}-300 text-xs rounded-full`}>{tag}</span>
-                ))}
-              </div>
-              <a href={project.link} className={`inline-flex items-center text-sm text-${project.color}-400 hover:text-${project.color}-300 transition-colors`}>
-                View project <ChevronRight className="ml-1 h-4 w-4" />
+            <div className="absolute bottom-4 right-4 text-[10px] font-mono tracking-widest text-white/50 uppercase font-bold bg-black/50 px-2 py-1 rounded backdrop-blur-sm">
+              {achievement.date}
+            </div>
+          </div>
+
+          <div className="space-y-3">
+            <h3 className="text-xl font-semibold text-white leading-tight group-hover:text-yellow-400 transition-colors">
+              {achievement.title}
+            </h3>
+            <p className="text-sm font-medium text-slate-400 uppercase tracking-widest">
+              {achievement.organization}
+            </p>
+            <div className="pt-2">
+              <a
+                href={achievement.link}
+                className="inline-flex items-center text-[#E5E7EB] text-sm font-medium hover:opacity-100 opacity-90 transition-all gap-1 group/link"
+              >
+                <span className="border-b border-transparent group-hover/link:border-[#E5E7EB] pb-0.5 transition-all">
+                  View details
+                </span>
+                <ChevronRight className="w-4 h-4 mt-0.5 transform group-hover/link:translate-x-1 transition-transform" />
               </a>
             </div>
           </div>
-        ))}
-      </div>
-    </div>
-  );
-};
-
-// Fixed mismatched and missing closing tags for JSX components
-const Achievements = () => {
-  return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-      {achievements.map((achievement, index) => (
-        <Card
-          key={index}
-          className="backdrop-blur-sm bg-[#323845]/70 hover:bg-[#383E4E]/90 border border-gray-700/50 hover:shadow-xl hover:shadow-blue-900/20 transform transition-all duration-500 hover:-translate-y-1 group"
-          style={{ animationDelay: `${index * 100}ms` }}
-        >
-          <CardContent className="p-5 md:p-6">
-            <div className="flex flex-col gap-4">
-              <div className="flex justify-between items-start">
-                <div className="bg-gradient-to-br from-yellow-500/20 to-orange-500/20 p-3 rounded-full group-hover:scale-105 transition-transform duration-300">
-                  {/* Use the icon property */}
-                  {achievement.icon}
-                </div>
-                <span className="text-sm text-gray-400 flex items-center">
-                  <Calendar className="h-4 w-4 mr-1" />
-                  {achievement.date}
-                </span>
-              </div>
-              <div>
-                <h3 className="text-lg font-bold text-white mb-1 text-center sm:text-left">{achievement.title}</h3>
-                <p className="text-yellow-400 font-medium mb-3 text-center sm:text-left">{achievement.organization}</p>
-                <p className="text-gray-300 text-sm text-center sm:text-left">{achievement.description}</p>
-              </div>
-              <div className="mt-auto pt-2 text-center sm:text-left">
-                <a
-                  href={achievement.link}
-                  className="inline-flex items-center text-sm text-yellow-300 hover:text-yellow-200 transition-colors group"
-                >
-                  View details
-                  <ExternalLink className="ml-1 h-3.5 w-3.5 transform group-hover:translate-x-0.5 transition-transform duration-200" />
-                </a>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
+        </motion.div>
       ))}
     </div>
   );
@@ -279,54 +271,158 @@ const Achievements = () => {
 // Updated Certifications section to include mobile view styling
 const Certifications = () => {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16 mt-12 px-2">
       {certifications.map((cert, index) => (
-        <Card
+        <motion.div
           key={index}
-          className={`backdrop-blur-sm bg-[#323845]/70 hover:bg-[#383E4E]/90 border border-gray-700/50 hover:shadow-xl hover:shadow-${cert.color}-900/20 transform transition-all duration-500 hover:-translate-y-1 group`}
-          style={{ animationDelay: `${index * 100}ms` }}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: index * 0.1 }}
+          className="group cursor-pointer"
         >
-          <CardContent className="p-5 relative overflow-hidden">
-            <div className={`absolute top-0 right-0 w-32 h-32 bg-${cert.color}-500/5 rounded-full blur-2xl transform translate-x-10 -translate-y-10 group-hover:bg-${cert.color}-500/10 transition-all duration-500`}></div>
+          <div className={`aspect-[16/10] overflow-hidden rounded-[24px] mb-6 bg-gradient-to-br from-[#1E293B] to-[#0F172A] border border-white/5 flex items-center justify-center relative group-hover:border-${cert.color}-500/20 transition-all duration-500`}>
+            <div className={`absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-from)_0%,_transparent_70%)] from-${cert.color}-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+            <div className="w-full h-full overflow-hidden transform transition-transform duration-700 group-hover:scale-110 text-white">
+              <img src={cert.image} alt={cert.title} className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" />
+            </div>
+            <div className="absolute top-4 right-4 text-[10px] font-mono tracking-widest text-white/50 uppercase font-bold bg-black/50 px-2 py-1 rounded backdrop-blur-sm">
+              ID: {cert.credentialId.split('-').pop()}
+            </div>
+          </div>
 
-            <div className="flex items-start justify-between mb-4">
-              <div className={`bg-gradient-to-br from-${cert.color}-500/20 to-blue-500/20 p-2.5 rounded-full group-hover:scale-105 transition-transform duration-300`}>
-                <GraduationCap className={`text-${cert.color}-400 h-5 w-5`} />
-              </div>
+          <div className="space-y-3">
+            <h3 className="text-xl font-semibold text-white leading-tight group-hover:text-blue-400 transition-colors">
+              {cert.title}
+            </h3>
+            <p className={`text-sm font-medium text-${cert.color}-400/80 uppercase tracking-widest`}>
+              {cert.issuer} • {cert.date}
+            </p>
+            <div className="pt-2">
               <a
                 href={cert.link}
-                className={`flex items-center justify-center bg-${cert.color}-900/30 hover:bg-${cert.color}-800/40 text-${cert.color}-300 p-1.5 rounded-full transform transition-all duration-300 hover:scale-110`}
-                title="Verify Certificate"
+                className="inline-flex items-center text-[#E5E7EB] text-sm font-medium hover:opacity-100 opacity-90 transition-all gap-1 group/link"
               >
-                <ExternalLink className="h-4 w-4" />
+                <span className="border-b border-transparent group-hover/link:border-[#E5E7EB] pb-0.5 transition-all">
+                  Verify Certificate
+                </span>
+                <ChevronRight className="w-4 h-4 mt-0.5 transform group-hover/link:translate-x-1 transition-transform" />
               </a>
             </div>
-
-            <h3 className="text-md font-bold text-white mb-1 line-clamp-2">{cert.title}</h3>
-            <p className={`text-${cert.color}-400 font-medium text-sm mb-3`}>{cert.issuer}</p>
-
-            <div className="space-y-2 mt-4">
-              <div className="flex justify-between items-center text-xs text-gray-400">
-                <span>Issue Date</span>
-                <span className="text-white">{cert.date}</span>
-              </div>
-              <div className="flex justify-between items-center text-xs text-gray-400">
-                <span>Expiration</span>
-                <span className="text-white">{cert.expires}</span>
-              </div>
-              <div className="flex justify-between items-center text-xs text-gray-400">
-                <span>Credential ID</span>
-                <span className={`text-${cert.color}-300 font-mono`}>{cert.credentialId}</span>
-              </div>
-            </div>
- 
-            <div className={`absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-${cert.color}-500 to-blue-500 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300`}></div>
-          </CardContent>
-        </Card>
+          </div>
+        </motion.div>
       ))}
     </div>
   );
 };
+
+
+// Projects Component
+// Projects Component
+const ProjectsList = () => {
+  return (
+    <div className="space-y-16 mt-12 px-2">
+      {projects.map((project, index) => (
+        project.featured ? (
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="flex flex-col lg:flex-row items-center gap-12 group"
+          >
+            {/* Left Side: Content */}
+            <div className="flex-1 space-y-8">
+              <div className="flex items-center gap-6 text-gray-500 font-mono text-sm">
+                <span className="text-white border-b border-white pb-1">01</span>
+                <span>02</span>
+                <ChevronRight className="w-4 h-4" />
+              </div>
+
+              <div className="space-y-4">
+                <h3 className="text-4xl md:text-5xl font-bold text-white tracking-tight">
+                  {project.title}
+                </h3>
+                <p className="text-slate-400 text-lg leading-relaxed max-w-xl">
+                  {project.description}
+                </p>
+              </div>
+
+              <motion.a
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ x: 10 }}
+                className="flex items-center gap-2 text-primary font-bold group/link"
+              >
+                Explore Luxury Design
+                <ArrowRight className="w-5 h-5 group-hover/link:translate-x-1 transition-transform" />
+              </motion.a>
+            </div>
+
+            {/* Right Side: Image */}
+            <div className="flex-[1.5] relative">
+              <div className="absolute -inset-4 bg-primary/10 blur-[100px] rounded-full opacity-20 group-hover:opacity-40 transition-opacity" />
+              <div className="relative overflow-hidden rounded-[40px] border border-white/10 aspect-[16/10]">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-full object-cover transform transition-transform duration-1000 group-hover:scale-105"
+                />
+              </div>
+
+              {/* Floating Tech Label */}
+              <div className="absolute bottom-6 right-6 px-6 py-2 bg-black/80 backdrop-blur-md rounded-full border border-white/10 text-xs font-bold tracking-[0.2em] text-white">
+                {project.tech}
+              </div>
+            </div>
+          </motion.div>
+        ) : (
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: index * 0.1 }}
+            className="group relative overflow-hidden rounded-[32px] bg-[#1E293B]/40 border border-white/10 hover:border-primary/50 transition-all duration-500"
+          >
+            <div className="aspect-video overflow-hidden">
+              <img
+                src={project.image}
+                alt={project.title}
+                className="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105 opacity-60 group-hover:opacity-100 transition-opacity"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
+            </div>
+
+            <div className="p-8 absolute bottom-0 left-0 right-0 transform translate-y-6 group-hover:translate-y-0 transition-all duration-500">
+              <div className="flex justify-between items-end gap-4">
+                <div className="flex-1">
+                  <p className="text-primary text-[10px] font-black uppercase tracking-[0.2em] mb-3">{project.tech}</p>
+                  <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-primary transition-colors">{project.title}</h3>
+                  <p className="text-xs text-slate-400 max-w-sm opacity-0 group-hover:opacity-100 transition-all duration-500 delay-100 line-clamp-2 leading-relaxed">
+                    {project.description}
+                  </p>
+                </div>
+                <motion.a
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ scale: 1.1, rotate: 12 }}
+                  whileTap={{ scale: 0.9 }}
+                  className="w-12 h-12 rounded-full bg-white flex items-center justify-center text-black shadow-2xl transition-all"
+                >
+                  <ExternalLink className="w-5 h-5" />
+                </motion.a>
+              </div>
+            </div>
+          </motion.div>
+        )
+      ))}
+    </div>
+  );
+};
+
 
 // Main component - Enhanced with better animations and loading states
 const ProfessionalProfile = () => {
@@ -352,184 +448,74 @@ const ProfessionalProfile = () => {
     };
   }, []);
 
-  const toggleExpand = (index) => {
-    setExpandedIndex(expandedIndex === index ? null : index);
-  };
-
-  // Enhanced download resume function with feedback
-  const handleDownloadResume = () => {
-    alert("Resume download started!");
-  };
-
-  // Enhanced theme toggle function
-  const toggleTheme = () => {
-    const themes = ["blue", "purple", "cyan", "green"];
-    const currentIndex = themes.indexOf(theme);
-    const nextIndex = (currentIndex + 1) % themes.length;
-    setTheme(themes[nextIndex]);
-  };
 
   // Enhanced tabs with better visual styling
   const tabs = [
     { id: "resume", label: "Resume", icon: <FileText className="h-4 w-4" /> },
+    { id: "projects", label: "Projects", icon: <Briefcase className="h-4 w-4" /> },
     { id: "achievements", label: "Achievements", icon: <Award className="h-4 w-4" /> },
     { id: "certifications", label: "Certifications", icon: <GraduationCap className="h-4 w-4" /> },
-    // { id: "projects", label: "All Projects", icon: <Briefcase className="h-4 w-4" /> }
   ];
 
   // Loading state UI
   if (isLoading) {
     return (
-      <div className="flex items-center justify-center min-h-screen bg-[#2A2F3C]">
+      <div className="flex items-center justify-center min-h-screen bg-[#000000]">
         <div className="w-16 h-16 border-4 border-blue-500/20 border-t-blue-500 rounded-full animate-spin"></div>
       </div>
     );
   }
 
   return (
-    <section className="py-12 md:py-20 px-4 bg-[#2A2F3C] text-gray-200 relative overflow-hidden min-h-screen">
+    <section id="experience" className="py-12 md:py-24 px-4 bg-[#000000] text-gray-200 relative overflow-hidden min-h-screen">
       <AnimatedBackground />
 
       <div className={`max-w-5xl mx-auto relative z-10 transition-all duration-1000 transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
 
-        <div className="flex flex-wrap justify-center gap-2 mb-10">
-          {tabs.map((tab) => (
-            <button
-              key={tab.id}
-              onClick={() => setActiveTab(tab.id)}
-              className={`flex items-center gap-2 px-5 py-2.5 rounded-full transition-all duration-300 ${activeTab === tab.id
-                ? `bg-gradient-to-r from-${theme}-600 to-purple-600 text-white shadow-lg shadow-${theme}-900/20`
-                : "bg-gray-800/50 text-gray-300 hover:bg-gray-700/70"
-                }`}
-            >
-              {tab.icon}
-              <span>{tab.label}</span>
-            </button>
-          ))}
+        <div className="flex flex-wrap justify-center items-center gap-4 mb-10">
+          <div className="flex flex-wrap justify-center gap-2">
+            {tabs.map((tab) => (
+              <button
+                key={tab.id}
+                onClick={() => setActiveTab(tab.id)}
+                className={`flex items-center gap-2 px-5 py-2.5 rounded-full transition-all duration-300 ${activeTab === tab.id
+                  ? `bg-gradient-to-r from-${theme}-600 to-purple-600 text-white shadow-lg shadow-${theme}-900/20`
+                  : "bg-gray-800/50 text-gray-300 hover:bg-gray-700/70"
+                  }`}
+              >
+                {tab.icon}
+                <span>{tab.label}</span>
+              </button>
+            ))}
+          </div>
         </div>
+
 
         {activeTab === "resume" && (
           <div className="animate-fadeIn">
-            <ResumePreview onDownload={handleDownloadResume} onUpload={() => alert('Upload functionality triggered!')} />
-            <FeaturedProjects />
+            <ResumePreview />
+          </div>
+        )}
+
+        {activeTab === "projects" && (
+          <div className="animate-fadeIn">
+            <ProjectsList />
           </div>
         )}
 
         {activeTab === "achievements" && (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 animate-fadeIn">
-            {achievements.map((achievement, index) => (
-              <Card
-                key={index}
-                className="backdrop-blur-sm bg-[#323845]/70 hover:bg-[#383E4E]/90 border border-gray-700/50 hover:shadow-xl hover:shadow-blue-900/20 transform transition-all duration-500 hover:-translate-y-1"
-                style={{ animationDelay: `${index * 100}ms` }}
-              >
-                <CardContent className="p-5 md:p-6">
-                  <div className="flex flex-col gap-4">
-                    <div className="flex justify-between items-start">
-                      <div className="bg-gradient-to-br from-yellow-500/20 to-orange-500/20 p-3 rounded-full group-hover:scale-105 transition-transform duration-300">
-                        <Award className="text-yellow-400 h-5 w-5 md:h-6 md:w-6" />
-                      </div>
-                      <span className="text-sm text-gray-400 flex items-center">
-                        <Calendar className="h-4 w-4 mr-1" />
-                        {achievement.date}
-                      </span>
-                    </div>
-
-                    <div>
-                      <h3 className="text-lg font-bold text-white mb-1 text-center sm:text-left">{achievement.title}</h3>
-                      <p className="text-yellow-400 font-medium mb-3 text-center sm:text-left">{achievement.organization}</p>
-                      <p className="text-gray-300 text-sm text-center sm:text-left">{achievement.description}</p>
-                    </div>
-
-                    <div className="mt-auto pt-2 text-center sm:text-left">
-                      <a
-                        href={achievement.link}
-                        className="inline-flex items-center text-sm text-yellow-300 hover:text-yellow-200 transition-colors group"
-                      >
-                        View details
-                        <ExternalLink className="ml-1 h-3.5 w-3.5 transform group-hover:translate-x-0.5 transition-transform duration-200" />
-                      </a>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-
-            <div className="md:col-span-2 mt-6">
-              <Card className="backdrop-blur-sm bg-gradient-to-br from-[#323845]/90 to-[#2A2F3C]/90 border border-yellow-500/20 hover:shadow-xl hover:shadow-yellow-900/10 transition-all duration-500">
-                <CardContent className="p-6">
-                  <div className="flex flex-col md:flex-row items-center gap-6">
-                    <div className="bg-yellow-500/10 p-4 rounded-full">
-                      <Star className="h-10 w-10 text-yellow-400" />
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
+          <div className="animate-fadeIn">
+            <Achievements />
           </div>
         )}
 
         {activeTab === "certifications" && (
           <div className="animate-fadeIn">
             <Certifications />
-            <div className="mt-12 bg-gradient-to-br from-[#2F3545] to-[#252A38] rounded-lg p-6 border border-gray-700/30 shadow-lg">
-              <div className="flex flex-col md:flex-row items-center gap-6">
-                <div className="w-32 h-32 relative group perspective">
-                  <div className="absolute inset-0 rounded-full bg-gradient-to-br from-cyan-500 to-blue-600 shadow-lg shadow-cyan-500/30 transform group-hover:rotateY-180 transition-all duration-1000 preserve-3d">
-                    <div className="absolute inset-0 flex items-center justify-center backface-hidden">
-                      <GraduationCap className="h-16 w-16 text-white" />
-                    </div>
-                    <div className="absolute inset-0 flex items-center justify-center backface-hidden rotateY-180">
-                      <Star className="h-16 w-16 text-white" />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
         )}
 
-        {activeTab === "projects" && (
-          <div className="animate-fadeIn">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {[...projects, ...projects.slice(0, 2)].map((project, index) => (
-                <Card
-                  key={index}
-                  className={`backdrop-blur-sm bg-[#323845]/70 hover:bg-[#383E4E]/90 border border-gray-700/50 hover:shadow-xl hover:shadow-${project.color}-900/20 transform transition-all duration-500 hover:-translate-y-1 group overflow-hidden`}
-                >
-                  <div className={`h-2 bg-gradient-to-r from-${project.color}-500 to-${project.color === 'blue' ? 'purple' : 'blue'}-500`}></div>
-                  <CardContent className="p-5 relative">
-                    <div className="flex items-start justify-between mb-4">
-                      <div className={`bg-${project.color}-500/10 p-2.5 rounded-full group-hover:scale-105 transition-transform duration-300`}></div>
-                      <div className="flex gap-2">
-                        {project.tags.slice(0, 1).map((tag, tagIndex) => (
-                          <span key={tagIndex} className={`px-2 py-1 bg-${project.color}-900/30 text-${project.color}-300 text-xs rounded-full`}>{tag}</span>
-                        ))}
-                      </div>
-                    </div>
 
-                    <h3 className="text-lg font-bold text-white mb-2">{project.title}</h3>
-                    <p className="text-gray-300 text-sm mb-4">{project.description}</p>
-
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      {project.tags.slice(1).map((tag, tagIndex) => (
-                        <span key={tagIndex} className={`px-2 py-1 bg-${project.color}-900/30 text-${project.color}-300 text-xs rounded-full`}>{tag}</span>
-                      ))}
-                    </div>
-
-                    <a
-                      href={project.link}
-                      className={`inline-flex items-center text-sm text-${project.color}-400 hover:text-${project.color}-300 transition-colors group`}
-                    >
-                      View project details
-                      <ChevronRight className="ml-1 h-4 w-4 transform group-hover:translate-x-0.5 transition-transform duration-200" />
-                    </a>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
-        )}
       </div>
     </section>
   );
