@@ -58,7 +58,7 @@ const Skills = () => {
               }));
             }, index * 300);
           });
-          
+
           // Set the first category as active after everything is visible
           setTimeout(() => {
             setActiveCategory(Object.keys(skills)[0]);
@@ -89,8 +89,8 @@ const Skills = () => {
   };
 
   return (
-    <section 
-      ref={sectionRef} 
+    <section
+      ref={sectionRef}
       className="py-16 md:py-24 px-4 relative overflow-hidden bg-gradient-to-b from-[#1A1F2C] to-[#262f40]"
     >
       {/* Animated background elements */}
@@ -98,7 +98,7 @@ const Skills = () => {
         <div className="absolute w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse top-0 left-0" />
         <div className="absolute w-80 h-80 bg-purple-500/10 rounded-full blur-3xl animate-pulse-slow bottom-0 right-0" />
         <div className="absolute w-64 h-64 bg-primary/10 rounded-full blur-3xl animate-float opacity-70 top-1/2 left-1/3" />
-        
+
         {/* Grid pattern overlay */}
         <div className="absolute inset-0 bg-grid-pattern opacity-10" />
       </div>
@@ -111,7 +111,7 @@ const Skills = () => {
             <span className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary to-transparent transform scale-x-0 animate-expand-line" />
           </h2>
           <p className="text-gray-300 max-w-2xl mx-auto">
-            My professional journey has equipped me with expertise across multiple domains, 
+            My professional journey has equipped me with expertise across multiple domains,
             enabling me to build comprehensive solutions.
           </p>
         </div>
@@ -121,11 +121,10 @@ const Skills = () => {
           {Object.keys(skills).map((category) => (
             <button
               key={category}
-              className={`px-4 py-2 rounded-lg flex items-center gap-2 transition-all duration-300 ${
-                activeCategory === category 
-                  ? "bg-primary text-white shadow-lg shadow-primary/20 scale-105" 
+              className={`px-4 py-2 rounded-lg flex items-center gap-2 transition-all duration-300 ${activeCategory === category
+                  ? "bg-primary text-white shadow-lg shadow-primary/20 scale-105"
                   : "bg-white/10 text-gray-300 hover:bg-white/20"
-              }`}
+                }`}
               onClick={() => setActiveCategory(category)}
             >
               <span className={`transition-colors duration-300 ${activeCategory === category ? "text-white" : "text-primary"}`}>
@@ -139,7 +138,7 @@ const Skills = () => {
 
         {/* Main card container with 3D effect */}
         <div className="perspective-1000">
-          <div 
+          <div
             className="transform transition-transform duration-700 preserve-3d relative"
             style={{ transform: `rotateY(${Object.keys(skills).indexOf(activeCategory) * 5}deg)` }}
           >
@@ -158,13 +157,13 @@ const Skills = () => {
                       {skills[activeCategory].length} skills
                     </div>
                   </div>
-                  
+
                   <div className="space-y-6">
                     {skills[activeCategory].map((skill, index) => (
-                      <div 
-                        key={skill.name} 
+                      <div
+                        key={skill.name}
                         className="hover:translate-x-1 transition-all duration-300"
-                        style={{ 
+                        style={{
                           animationDelay: `${index * 200}ms`,
                           opacity: visibleSkills[activeCategory] ? 1 : 0,
                           transform: visibleSkills[activeCategory] ? "translateY(0)" : "translateY(20px)",
@@ -178,10 +177,10 @@ const Skills = () => {
                           </div>
                           <span className="text-sm text-gray-300 font-mono">{skill.level}%</span>
                         </div>
-                        
+
                         {/* Custom progress bar with gradient */}
                         <div className="h-2 w-full bg-gray-700/50 rounded-full overflow-hidden">
-                          <div 
+                          <div
                             className="h-full rounded-full"
                             style={{
                               ...getProgressStyle(
@@ -200,9 +199,9 @@ const Skills = () => {
           </div>
         </div>
       </div>
-      
+
       {/* CSS for custom animations and patterns */}
-      <style jsx>{`
+      <style>{`
         @keyframes pulse-slow {
           0%, 100% { transform: scale(1); opacity: 0.7; }
           50% { transform: scale(1.05); opacity: 0.9; }

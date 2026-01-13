@@ -5,7 +5,6 @@ import { motion } from "framer-motion";
 import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
 import { Link, useNavigate } from "react-router-dom";
-import profileImg from '../../img/profile.webp';
 import websiteImg from '../img/profile.webp';
 import resumeThumb from '../img/kuldeep02-1.webp';
 
@@ -162,7 +161,7 @@ const Hero = () => {
 
               {/* Hover Badge - Simplified */}
               <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-black/80 backdrop-blur-md text-white/90 px-4 py-1.5 rounded-full text-xs font-bold border border-white/10 tracking-widest opacity-0 group-hover:opacity-100 transition-all duration-500 whitespace-nowrap">
-                KEEN TO LEARN NEW THINGS
+                DRIVEN BY CONTINUOUS INNOVATION
               </div>
             </div>
             {/* Clean Portfolio Avatar Design End */}
@@ -191,17 +190,17 @@ const Hero = () => {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5, duration: 0.8 }}
             >
-              I transform <span className="text-white font-medium">complex challenges</span> into <span className="text-primary font-medium">innovative solutions</span> through{" "}
+              I bridge the gap between <span className="text-white font-medium">ambitious ideas</span> and <span className="text-primary font-medium">scalable reality</span> through expertise in{" "}
               <span className="skill-text ml-highlight relative">
                 Machine Learning
                 <span className="skill-underline ml-style"></span>
               </span>, {" "}
               <span className="skill-text devops-highlight relative">
-                DevOps
+                Cloud Architecture
                 <span className="skill-underline devops-style"></span>
               </span>, and{" "}
               <span className="skill-text fullstack-highlight relative">
-                Full Stack Development
+                Modern Web Engineering
                 <span className="skill-underline fullstack-style"></span>
               </span>.
             </motion.p>

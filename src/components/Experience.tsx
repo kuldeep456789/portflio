@@ -6,124 +6,95 @@ import {
   Award, Download, FileText, Clock, ChevronRight, Star, ExternalLink, Mail, Calendar, CheckCircle, GraduationCap, Sparkles, Code, Briefcase, Users, Upload, ArrowRight
 } from "lucide-react";
 import resumeThumb from '../img/kuldeep02-1.webp';
-import aiSafety from '../img/ai safety.webp';
 import blogImg from '../img/blog.webp';
-import currencyImg from '../img/currency.webp';
-import summerKart from '../img/summer kart.webp';
-import websiteImg from '../img/profile.webp';
+import trafficImg from '../img/traffic.png';
+import leetcodeProfile from '../img/leetcode_profile.png';
+import apanaImg from '../img/apana.jpg';
+import cipherImg from '../img/cipherschol.jpg';
+import hackathonImg from '../img/hacktohon.jpg';
+import summerKartImg from '../img/summer kart.webp';
+
 // Achievement data
 const achievements = [
   {
-    title: "Industry Recognition Award",
-    organization: "Tech Innovation Summit",
-    date: "November 2023",
-    description: "Recognized for contributions to open-source ML frameworks and innovative deployments in production environments.",
-    link: "#",
-    image: currencyImg
+    title: "DSA Problem Solver",
+    organization: "LeetCode",
+    date: "2022 - Present",
+    description: "Successfully solved 430+ complex algorithmic challenges using Python, maintaining a top 15% global ranking (Top 14.49%) with a 1,682 contest rating.",
+    link: "https://leetcode.com/u/Kp_prajapati/",
+    image: leetcodeProfile,
+    fit: "object-contain"
   },
   {
-    title: "1st Place Hackathon Winner",
-    organization: "Global Dev Challenge",
+    title: "Hackathon Participant",
+    organization: "38-Hour University Hackathon",
     date: "June 2022",
-    description: "Led a team of 4 developers to create an AI-powered accessibility tool that won first place among 200+ international teams.",
+    description: "Led a development team to create a crowd detection system using TensorFlow, optimizing density management for public safety.",
     link: "#",
-    image: summerKart
+    image: hackathonImg,
+    fit: "object-contain"
   },
   {
     title: "Published Research Paper",
     organization: "International Journal of Computer Science",
-    date: "August 2021",
-    description: "Research on optimization techniques for deep learning models was published and cited in over 30 subsequent papers.",
+    date: "Dec 2025",
+    description: "Lead author of research on 'Intelligent Traffic Coordination' using Multi-Agent Reinforcement Learning for urban flow optimization.",
     link: "#",
-    image: blogImg
-  },
-  {
-    title: "Open Source Contributor",
-    organization: "Major Framework",
-    date: "2020 - Present",
-    description: "Core contributor with 50+ accepted pull requests improving performance and adding new features.",
-    link: "#",
-    image: aiSafety
+    image: trafficImg,
+    fit: "object-contain"
   }
 ];
 
 // Certification data (removed duplicate CKA entry)
 const certifications = [
   {
-    title: "Cipher school from (java)",
-    issuer: "Cipher school",
-    date: "April 2024",
-    expires: "May 2024",
-    credentialId: "CSW2024-13223",
-    link: "https://www.dropbox.com/scl/fi/irwo2ehn9qm5vyjyne9k3/cipher_school-java-summer-term.pdf?rlkey=qjlajrwuzxr94d8q823kec7be&st=71o9a1p5&dl=0",
+    title: "Delta Full Stack Development",
+    issuer: "Apna College",
+    date: "Dec 2023",
+    expires: "N/A",
+    credentialId: "APNA-FS-2023",
+    link: "#",
     color: "blue",
-    image: currencyImg
+    image: apanaImg,
+    fit: "object-contain"
   },
   {
-    title: "Hackaton ",
-    issuer: "WEB-E=-STAND",
-    date: "feb 2025",
-    expires: "feb 2025",
+    title: "Web-E-Stand Hackathon Winner",
+    issuer: "WEB-E-STAND",
+    date: "Feb 2025",
+    expires: "N/A",
     credentialId: "WEB-E-2025-12345",
-    link: "https://www.dropbox.com/scl/fi/zmbb3jv3qmw3uffiaav0l/web-e-stand.pdf?rlkey=1ixxyburv2ci7jfjtrh859fqm&st=7johk0h5&dl=0",
     color: "green",
-    image: summerKart
+    image: hackathonImg,
+    fit: "object-contain"
   },
   {
-    title: "TensorFlow Developer Certificate",
-    issuer: "Google",
-    date: "January 2022",
-    expires: "N/A (Non-expiring)",
-    credentialId: "TF-DEV-345678",
-    link: "#",
+    title: "Java Summer Training",
+    issuer: "CipherSchool",
+    date: "May 2024",
+    expires: "N/A",
+    credentialId: "CSW2024-13223",
     color: "orange",
-    image: aiSafety
-  },
-  {
-    title: "Microsoft Certified: Azure DevOps Engineer Expert",
-    issuer: "Microsoft",
-    date: "November 2021",
-    expires: "November 2024",
-    credentialId: "MS-ADOE-901234",
-    link: "#",
-    color: "indigo",
-    image: blogImg
-  },
-  {
-    title: "Certified Kubernetes Administrator (CKA)",
-    issuer: "Cloud Native Computing Foundation",
-    date: "March 2021",
-    expires: "March 2024",
-    credentialId: "CKA-567890",
-    link: "#",
-    color: "purple",
-    image: summerKart
+    image: cipherImg,
+    fit: "object-contain"
   }
 ];
 
 // Projects data
 const projects = [
   {
-    title: "Individual Look: Luxury Experience",
-    tech: "React, Framer Motion, 3D",
-    description: "The Audi A4 luxury sedan stands out with its broad wings, striking sill trims, and distinctive wheels. This digital experience brings that refinement to life with LED lighting effects and trapezoid tailpipe highlights, emphasizing a strong and elegant presence.",
-    link: "https://github.com/kuldeep456789",
-    image: websiteImg,
-    featured: true
-  },
-  {
     title: "Summer Kart - E-commerce",
-    tech: "React, Node.js, MongoDB",
+    tech: "React, Node.js, MongoDB, Express.js",
     description: "A full-stack e-commerce platform with real-time inventory management and secure payment integration.",
-    link: "https://github.com/kuldeep456789",
-    image: summerKart
+    link: "https://summerkart.vercel.app/",
+    image: summerKartImg
   },
   {
-    title: "AI Safety Monitor",
-    tech: "Python, TensorFlow, Flask",
-    description: "Machine learning model to detect and flag potential safety risks in real-time communication streams.",
-    link: "https://github.com/kuldeep456789",
-    image: aiSafety
+    title: "SQL Query Master",
+    tech: "Node.js, Express, TypeScript",
+    description: "Interactive SQL learning platform with real-time query practice, levels (easy/medium/hard), and achievement badges.",
+    link: "https://sfrotnkast.vercel.app/",
+    image: blogImg
   }
 ];
 
@@ -188,18 +159,6 @@ const ResumePreview = () => {
             alt="Resume"
             className="w-full h-auto object-contain transform transition-transform duration-1000 group-hover:scale-105"
           />
-
-          {/* Quick Actions Hover */}
-          <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity z-20">
-            <a
-              href={resumeThumb}
-              target="_blank"
-              className="px-8 py-3 rounded-full bg-white text-black font-bold flex items-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500 hover:bg-blue-500 hover:text-white"
-            >
-              <ExternalLink className="w-4 h-4" />
-              View Full Size
-            </a>
-          </div>
         </div>
       </div>
 
@@ -236,7 +195,7 @@ const Achievements = () => {
           <div className="aspect-[16/10] overflow-hidden rounded-[24px] mb-6 bg-gradient-to-br from-[#1E293B] to-[#0F172A] border border-white/5 flex items-center justify-center relative group-hover:border-white/10 transition-all duration-500">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-from)_0%,_transparent_70%)] from-yellow-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             <div className="w-full h-full overflow-hidden transform transition-transform duration-700 group-hover:scale-110">
-              <img src={achievement.image} alt={achievement.title} className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" />
+              <img src={achievement.image} alt={achievement.title} className={`w-full h-full ${achievement.fit || 'object-cover'} opacity-80 group-hover:opacity-100 transition-opacity`} />
             </div>
             <div className="absolute bottom-4 right-4 text-[10px] font-mono tracking-widest text-white/50 uppercase font-bold bg-black/50 px-2 py-1 rounded backdrop-blur-sm">
               {achievement.date}
@@ -284,7 +243,7 @@ const Certifications = () => {
           <div className={`aspect-[16/10] overflow-hidden rounded-[24px] mb-6 bg-gradient-to-br from-[#1E293B] to-[#0F172A] border border-white/5 flex items-center justify-center relative group-hover:border-${cert.color}-500/20 transition-all duration-500`}>
             <div className={`absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-from)_0%,_transparent_70%)] from-${cert.color}-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
             <div className="w-full h-full overflow-hidden transform transition-transform duration-700 group-hover:scale-110 text-white">
-              <img src={cert.image} alt={cert.title} className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" />
+              <img src={cert.image} alt={cert.title} className={`w-full h-full ${cert.fit || 'object-cover'} opacity-80 group-hover:opacity-100 transition-opacity`} />
             </div>
             <div className="absolute top-4 right-4 text-[10px] font-mono tracking-widest text-white/50 uppercase font-bold bg-black/50 px-2 py-1 rounded backdrop-blur-sm">
               ID: {cert.credentialId.split('-').pop()}
@@ -321,103 +280,47 @@ const Certifications = () => {
 // Projects Component
 const ProjectsList = () => {
   return (
-    <div className="space-y-16 mt-12 px-2">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12 px-2">
       {projects.map((project, index) => (
-        project.featured ? (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="flex flex-col lg:flex-row items-center gap-12 group"
-          >
-            {/* Left Side: Content */}
-            <div className="flex-1 space-y-8">
-              <div className="flex items-center gap-6 text-gray-500 font-mono text-sm">
-                <span className="text-white border-b border-white pb-1">01</span>
-                <span>02</span>
-                <ChevronRight className="w-4 h-4" />
-              </div>
+        <motion.div
+          key={index}
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: index * 0.1 }}
+          className="group relative overflow-hidden rounded-[32px] bg-[#1E293B]/40 border border-white/10 hover:border-primary/50 transition-all duration-500 min-h-[300px]"
+        >
+          <div className="aspect-video overflow-hidden">
+            <img
+              src={project.image}
+              alt={project.title}
+              className="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105 opacity-60 group-hover:opacity-100 transition-opacity"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
+          </div>
 
-              <div className="space-y-4">
-                <h3 className="text-4xl md:text-5xl font-bold text-white tracking-tight">
-                  {project.title}
-                </h3>
-                <p className="text-slate-400 text-lg leading-relaxed max-w-xl">
+          <div className="p-8 absolute bottom-0 left-0 right-0 transform translate-y-6 group-hover:translate-y-0 transition-all duration-500">
+            <div className="flex justify-between items-end gap-4">
+              <div className="flex-1">
+                <p className="text-primary text-[10px] font-black uppercase tracking-[0.2em] mb-3">{project.tech}</p>
+                <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-primary transition-colors">{project.title}</h3>
+                <p className="text-xs text-slate-400 max-w-sm opacity-0 group-hover:opacity-100 transition-all duration-500 delay-100 line-clamp-2 leading-relaxed">
                   {project.description}
                 </p>
               </div>
-
               <motion.a
                 href={project.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                whileHover={{ x: 10 }}
-                className="flex items-center gap-2 text-primary font-bold group/link"
+                whileHover={{ scale: 1.1, rotate: 12 }}
+                whileTap={{ scale: 0.9 }}
+                className="w-12 h-12 rounded-full bg-white flex items-center justify-center text-black shadow-2xl transition-all"
               >
-                Explore Luxury Design
-                <ArrowRight className="w-5 h-5 group-hover/link:translate-x-1 transition-transform" />
+                <ExternalLink className="w-5 h-5" />
               </motion.a>
             </div>
-
-            {/* Right Side: Image */}
-            <div className="flex-[1.5] relative">
-              <div className="absolute -inset-4 bg-primary/10 blur-[100px] rounded-full opacity-20 group-hover:opacity-40 transition-opacity" />
-              <div className="relative overflow-hidden rounded-[40px] border border-white/10 aspect-[16/10]">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-full object-cover transform transition-transform duration-1000 group-hover:scale-105"
-                />
-              </div>
-
-              {/* Floating Tech Label */}
-              <div className="absolute bottom-6 right-6 px-6 py-2 bg-black/80 backdrop-blur-md rounded-full border border-white/10 text-xs font-bold tracking-[0.2em] text-white">
-                {project.tech}
-              </div>
-            </div>
-          </motion.div>
-        ) : (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
-            className="group relative overflow-hidden rounded-[32px] bg-[#1E293B]/40 border border-white/10 hover:border-primary/50 transition-all duration-500"
-          >
-            <div className="aspect-video overflow-hidden">
-              <img
-                src={project.image}
-                alt={project.title}
-                className="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105 opacity-60 group-hover:opacity-100 transition-opacity"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
-            </div>
-
-            <div className="p-8 absolute bottom-0 left-0 right-0 transform translate-y-6 group-hover:translate-y-0 transition-all duration-500">
-              <div className="flex justify-between items-end gap-4">
-                <div className="flex-1">
-                  <p className="text-primary text-[10px] font-black uppercase tracking-[0.2em] mb-3">{project.tech}</p>
-                  <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-primary transition-colors">{project.title}</h3>
-                  <p className="text-xs text-slate-400 max-w-sm opacity-0 group-hover:opacity-100 transition-all duration-500 delay-100 line-clamp-2 leading-relaxed">
-                    {project.description}
-                  </p>
-                </div>
-                <motion.a
-                  href={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileHover={{ scale: 1.1, rotate: 12 }}
-                  whileTap={{ scale: 0.9 }}
-                  className="w-12 h-12 rounded-full bg-white flex items-center justify-center text-black shadow-2xl transition-all"
-                >
-                  <ExternalLink className="w-5 h-5" />
-                </motion.a>
-              </div>
-            </div>
-          </motion.div>
-        )
+          </div>
+        </motion.div>
       ))}
     </div>
   );
