@@ -1,28 +1,19 @@
-import { GraduationCap, Database, Server, Github, Mail, Linkedin, Menu, FileText } from "lucide-react";
-import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
-import { useState, useCallback } from "react";
+import { GraduationCap, Database, Server, Github, Mail, Linkedin, Menu } from "lucide-react";
+import { Avatar, AvatarImage } from "@/components/ui/avatar";
+import { useState } from "react";
 import { motion } from "framer-motion";
-import Particles from "react-tsparticles";
-import { loadFull } from "tsparticles";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import websiteImg from '../img/profile.webp';
 import resumeThumb from '../img/kuldeep02-1.webp';
-
 
 const Hero = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const navigate = useNavigate();
 
-  const particlesInit = useCallback(async (engine) => {
-    await loadFull(engine);
-  }, []);
-
   return (
     <>
-      {/* Navbar - High-End Refined Design */}
       <nav className="fixed top-0 left-0 right-0 z-50 px-4 flex justify-center pt-8">
         <div className="max-w-4xl w-full flex justify-between items-center bg-black/40 backdrop-blur-xl border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)] rounded-full px-8 py-3 transition-all duration-500">
-          {/* Custom Minimal Logo */}
           <motion.div
             whileHover={{ scale: 1.05 }}
             className="flex items-center gap-3 cursor-pointer group"
@@ -35,7 +26,6 @@ const Hero = () => {
             </div>
           </motion.div>
 
-          {/* Nav Links - Modern Minimalist */}
           <div className="hidden md:flex items-center space-x-12">
             <a href="#about" className="text-[10px] font-black uppercase tracking-[0.2em] text-gray-400 hover:text-white transition-all relative group">
               About
@@ -64,7 +54,6 @@ const Hero = () => {
             </motion.a>
           </div>
 
-          {/* Mobile Menu Trigger */}
           <div className="md:hidden">
             <button
               onClick={() => setMenuOpen(!menuOpen)}
@@ -75,7 +64,6 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* Mobile menu remains similarly refined */}
         {menuOpen && (
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
@@ -90,67 +78,20 @@ const Hero = () => {
         )}
       </nav>
 
-      {/* Hero Section */}
-      <section className="min-h-screen relative flex items-center justify-center text-white pt-24 p-4 bg-animated overflow-hidden">
-        <Particles
-          id="tsparticles"
-          init={particlesInit}
-          options={{
-            fullScreen: { enable: false },
-            background: { color: { value: "#000000" } },
-            particles: {
-              number: { value: 40 },
-              color: { value: "#00bcd4" },
-              links: {
-                enable: true,
-                color: "#00bcd4",
-                distance: 150,
-                opacity: 0.3,
-                width: 1,
-              },
-              move: {
-                enable: true,
-                speed: 0.6,
-                direction: "none",
-                outModes: "out",
-              },
-              size: {
-                value: { min: 1, max: 3 },
-              },
-              opacity: {
-                value: 0.4,
-              },
-            },
-            interactivity: {
-              events: {
-                onHover: { enable: true, mode: "repulse" },
-                resize: true,
-              },
-              modes: {
-                repulse: { distance: 100 },
-              },
-            },
-            detectRetina: true,
-          }}
-          className="absolute inset-0 -z-10"
-        />
-
+      <section className="min-h-screen relative flex items-center justify-center text-white pt-24 p-4 bg-transparent overflow-hidden">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
           className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-10 text-center md:text-left"
         >
-          {/* Avatar on right side - Clean Minimalist Style */}
           <motion.div
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 1, delay: 0.5 }}
             className="relative mb-8 md:mb-0 md:order-2 group"
           >
-            {/* Clean Portfolio Avatar Design */}
             <div className="relative z-10 p-2 rounded-full bg-black shadow-2xl border border-white/10 group-hover:border-primary/50 transition-all duration-500">
-              {/* Avatar with clean border */}
               <Avatar className="w-64 h-64 md:w-80 md:h-80 shadow-2xl transition-transform duration-700 group-hover:scale-[1.02] overflow-hidden">
                 <AvatarImage
                   src={websiteImg}
@@ -159,16 +100,12 @@ const Hero = () => {
                 />
               </Avatar>
 
-              {/* Hover Badge - Simplified */}
               <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-black/80 backdrop-blur-md text-white/90 px-4 py-1.5 rounded-full text-xs font-bold border border-white/10 tracking-widest opacity-0 group-hover:opacity-100 transition-all duration-500 whitespace-nowrap">
                 DRIVEN BY CONTINUOUS INNOVATION
               </div>
             </div>
-            {/* Clean Portfolio Avatar Design End */}
           </motion.div>
 
-
-          {/* Text and Buttons on left side */}
           <motion.div
             initial={{ x: -100, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
@@ -205,9 +142,6 @@ const Hero = () => {
               </span>.
             </motion.p>
 
-
-
-
             <div className="flex flex-wrap justify-center md:justify-start gap-4 mb-12 px-4 md:px-0">
               <motion.div
                 whileHover={{ scale: 1.05, y: -5 }}
@@ -228,7 +162,6 @@ const Hero = () => {
                 whileHover={{ scale: 1.05, y: -5 }}
                 transition={{ duration: 0.3 }}
                 className="flex flex-col items-center gap-2 p-4 bg-gradient-to-b from-gray-800/80 to-gray-900/80 rounded-xl shadow-lg border border-primary/20 hover:border-primary/40 cursor-pointer"
-              // onClick={() => navigate('/python')}
               >
                 <div className="p-2 rounded-full bg-primary/10">
                   <GraduationCap className="text-primary h-6 md:h-8 w-6 md:w-8" />
@@ -243,7 +176,6 @@ const Hero = () => {
                 whileHover={{ scale: 1.05, y: -5 }}
                 transition={{ duration: 0.3 }}
                 className="flex flex-col items-center gap-2 p-4 bg-gradient-to-b from-gray-800/80 to-gray-900/80 rounded-xl shadow-lg border border-primary/20 hover:border-primary/40 cursor-pointer"
-                onClick={() => navigate('/devops')}
               >
                 <div className="p-2 rounded-full bg-primary/10">
                   <Server className="text-primary h-6 md:h-8 w-6 md:w-8" />
@@ -258,7 +190,6 @@ const Hero = () => {
                 whileHover={{ scale: 1.05, y: -5 }}
                 transition={{ duration: 0.3 }}
                 className="flex flex-col items-center gap-2 p-4 bg-gradient-to-b from-gray-800/80 to-gray-900/80 rounded-xl shadow-lg border border-primary/20 hover:border-primary/40 cursor-pointer"
-                onClick={() => navigate('/fullstack')}
               >
                 <div className="p-2 rounded-full bg-primary/10">
                   <GraduationCap className="text-primary h-6 md:h-8 w-6 md:w-8" />
@@ -277,53 +208,245 @@ const Hero = () => {
               <a href="https://www.linkedin.com/in/kuldeep-prajapati-005080257/" target="_blank" className="gap-2 bg-gray-800/50 hover:scale-105 transition border-gray-700 hover:border-primary px-4 py-2 rounded-md flex items-center">
                 <Linkedin size={18} /> LinkedIn
               </a>
-              {/* <a
-                href={resumeThumb}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="gap-2 bg-primary hover:bg-primary/90 text-primary-foreground hover:scale-105 transition shadow-lg shadow-primary/20 hover:shadow-primary/30 px-4 py-2 rounded-md flex items-center cursor-pointer font-semibold"
-              >
-                <FileText size={18} /> Resume
-              </a> */}
               <a
                 onClick={() => navigate('/contact')}
                 className="gap-2 bg-gray-800/50 hover:scale-105 transition border border-gray-700 hover:border-primary px-4 py-2 rounded-md flex items-center cursor-pointer"
               >
                 <Mail size={18} /> Contact Me
               </a>
-
             </div>
           </motion.div>
         </motion.div>
       </section>
 
-      {/* Animated Gradient Background and Role Color Animation */}
-      <style>{`
-          .bg-animated {
-            background: linear-gradient(-45deg, #000000, #050505, #0a0a0a, #000000);
-            background-size: 400% 400%;
-            animation: gradientBG 15s ease infinite;
-          }
+      <section className="relative py-20 px-4 bg-transparent overflow-hidden">
+        <div className="max-w-6xl mx-auto relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 mb-4">
+              Tech Stack
+            </h2>
+            <div className="h-1 w-24 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full mx-auto mb-6"></div>
+          </motion.div>
 
-          @keyframes gradientBG {
-            0% {
-              background-position: 0% 50%;
-            }
-            50% {
-              background-position: 100% 50%;
-            }
-            100% {
-              background-position: 0% 50%;
-            }
-          }
-          
-          /* Unified skill text styling with consistent primary color */
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="group"
+            >
+              <div className="relative overflow-hidden rounded-[32px] bg-gradient-to-br from-[#1E293B]/60 to-[#0F172A]/60 border border-white/10 backdrop-blur-xl p-8 hover:border-blue-500/30 transition-all duration-500">
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-cyan-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                <div className="relative z-10 mb-6">
+                  <h3 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400 mb-2">
+                    Frontend
+                  </h3>
+                  <div className="h-1 w-16 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full"></div>
+                </div>
+
+                <div className="relative z-10 flex flex-wrap gap-3">
+                  {[
+                    { name: "ReactJs", icon: "⚛️" },
+                    { name: "NextJs", icon: "▲" },
+                    { name: "Recoil", icon: "🔄" },
+                    { name: "Zustand", icon: "🐻" },
+                    { name: "Redux", icon: "🔮" },
+                    { name: "React-Query", icon: "🔍" },
+                    { name: "Tailwind", icon: "💨" },
+                    { name: "Chakra-UI", icon: "⚡" },
+                    { name: "Shadcn", icon: "🎨" },
+                    { name: "Magic-UI", icon: "✨" },
+                    { name: "Material UI", icon: "🎯" },
+                  ].map((tech, index) => (
+                    <motion.div
+                      key={tech.name}
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: 0.1 + index * 0.05 }}
+                      whileHover={{ scale: 1.05, y: -2 }}
+                      className="group/badge relative overflow-hidden rounded-xl bg-gradient-to-br from-cyan-500/20 to-blue-500/20 border border-cyan-500/30 backdrop-blur-sm px-4 py-2.5 cursor-pointer transition-all duration-300"
+                    >
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover/badge:translate-x-full transition-transform duration-700"></div>
+                      <div className="relative flex items-center gap-2">
+                        <span className="text-lg">{tech.icon}</span>
+                        <span className="text-sm font-semibold text-white/90 group-hover/badge:text-white transition-colors">
+                          {tech.name}
+                        </span>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="group"
+            >
+              <div className="relative overflow-hidden rounded-[32px] bg-gradient-to-br from-[#1E293B]/60 to-[#0F172A]/60 border border-white/10 backdrop-blur-xl p-8 hover:border-green-500/30 transition-all duration-500">
+                <div className="absolute inset-0 bg-gradient-to-br from-green-500/5 via-emerald-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                <div className="relative z-10 mb-6">
+                  <h3 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-400 mb-2">
+                    Backend
+                  </h3>
+                  <div className="h-1 w-16 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full"></div>
+                </div>
+
+                <div className="relative z-10 flex flex-wrap gap-3">
+                  {[
+                    { name: "Node", icon: "🟢" },
+                    { name: "Express", icon: "🚂" },
+                    { name: "MongoDB", icon: "🍃" },
+                    { name: "Mongoose", icon: "🦡" },
+                    { name: "MySQL", icon: "🐬" },
+                    { name: "Prisma", icon: "🔷" },
+                    { name: "Drizzle", icon: "💧" },
+                    { name: "Redis", icon: "🔴" },
+                    { name: "NextJs", icon: "▲" },
+                    { name: "Convex-Db", icon: "🔺" },
+                    { name: "PostgreSQL", icon: "🐘" },
+                  ].map((tech, index) => (
+                    <motion.div
+                      key={tech.name}
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: 0.2 + index * 0.05 }}
+                      whileHover={{ scale: 1.05, y: -2 }}
+                      className="group/badge relative overflow-hidden rounded-xl bg-gradient-to-br from-green-500/20 to-emerald-500/20 border border-green-500/30 backdrop-blur-sm px-4 py-2.5 cursor-pointer transition-all duration-300"
+                    >
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover/badge:translate-x-full transition-transform duration-700"></div>
+                      <div className="relative flex items-center gap-2">
+                        <span className="text-lg">{tech.icon}</span>
+                        <span className="text-sm font-semibold text-white/90 group-hover/badge:text-white transition-colors">
+                          {tech.name}
+                        </span>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3 }}
+              className="group"
+            >
+              <div className="relative overflow-hidden rounded-[32px] bg-gradient-to-br from-[#1E293B]/60 to-[#0F172A]/60 border border-white/10 backdrop-blur-xl p-8 hover:border-yellow-500/30 transition-all duration-500">
+                <div className="absolute inset-0 bg-gradient-to-br from-yellow-500/5 via-orange-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                <div className="relative z-10 mb-6">
+                  <h3 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-400 mb-2">
+                    Languages
+                  </h3>
+                  <div className="h-1 w-16 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-full"></div>
+                </div>
+
+                <div className="relative z-10 flex flex-wrap gap-3">
+                  {[
+                    { name: "JavaScript", icon: "JS" },
+                    { name: "TypeScript", icon: "TS" },
+                    { name: "Java", icon: "☕" },
+                    { name: "Python", icon: "🐍" },
+                    { name: "C++", icon: "C++" },
+                  ].map((tech, index) => (
+                    <motion.div
+                      key={tech.name}
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: 0.3 + index * 0.05 }}
+                      whileHover={{ scale: 1.05, y: -2 }}
+                      className="group/badge relative overflow-hidden rounded-xl bg-gradient-to-br from-yellow-500/20 to-orange-500/20 border border-yellow-500/30 backdrop-blur-sm px-4 py-2.5 cursor-pointer transition-all duration-300"
+                    >
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover/badge:translate-x-full transition-transform duration-700"></div>
+                      <div className="relative flex items-center gap-2">
+                        <span className="text-lg font-bold">{tech.icon}</span>
+                        <span className="text-sm font-semibold text-white/90 group-hover/badge:text-white transition-colors">
+                          {tech.name}
+                        </span>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.4 }}
+              className="group"
+            >
+              <div className="relative overflow-hidden rounded-[32px] bg-gradient-to-br from-[#1E293B]/60 to-[#0F172A]/60 border border-white/10 backdrop-blur-xl p-8 hover:border-purple-500/30 transition-all duration-500">
+                <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 via-pink-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                <div className="relative z-10 mb-6">
+                  <h3 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400 mb-2">
+                    Other
+                  </h3>
+                  <div className="h-1 w-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full"></div>
+                </div>
+
+                <div className="relative z-10 flex flex-wrap gap-3">
+                  {[
+                    { name: "Git", icon: "🔀" },
+                    { name: "Github", icon: "🐙" },
+                    { name: "Docker", icon: "🐳" },
+                    { name: "Postman", icon: "📮" },
+                    { name: "Cloudinary", icon: "☁️" },
+                    { name: "Linux", icon: "🐧" },
+                    { name: "Socket-IO", icon: "🔌" },
+                  ].map((tech, index) => (
+                    <motion.div
+                      key={tech.name}
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: 0.4 + index * 0.05 }}
+                      whileHover={{ scale: 1.05, y: -2 }}
+                      className="group/badge relative overflow-hidden rounded-xl bg-gradient-to-br from-purple-500/20 to-pink-500/20 border border-purple-500/30 backdrop-blur-sm px-4 py-2.5 cursor-pointer transition-all duration-300"
+                    >
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover/badge:translate-x-full transition-transform duration-700"></div>
+                      <div className="relative flex items-center gap-2">
+                        <span className="text-lg">{tech.icon}</span>
+                        <span className="text-sm font-semibold text-white/90 group-hover/badge:text-white transition-colors">
+                          {tech.name}
+                        </span>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      <style>{`
           .skill-text {
             font-weight: 600;
             padding: 0 2px;
             display: inline-block;
             transition: all 0.3s ease;
-            color: #00bcd4; /* Primary color */
+            color: #00bcd4;
           }
           
           .skill-text:hover {
@@ -337,14 +460,13 @@ const Hero = () => {
             bottom: -2px;
             left: 0;
             transition: width 0.3s ease;
-            background: #00bcd4; /* Primary color */
+            background: #00bcd4;
           }
           
           .skill-text:hover .skill-underline {
             width: 100%;
           }
           
-          /* Individual highlighting variations while maintaining unified color */
           .ml-highlight {
             text-shadow: 0 0 10px rgba(0, 188, 212, 0.3);
             letter-spacing: 0.02em;
@@ -357,7 +479,6 @@ const Hero = () => {
           
           .devops-highlight {
             text-shadow: 0 0 8px rgba(0, 188, 212, 0.25);
-            // font-style: ;
           }
           
           .devops-style {
@@ -375,37 +496,6 @@ const Hero = () => {
             height: 3px;
           }
         `}</style>
-      <style>{`
-                .animate-pulse-slow {
-                  animation: pulse-slow 3s infinite;
-                }
-                @keyframes pulse-slow {
-                  0%, 100% { opacity: 0.6; }
-                  50% { opacity: 1; }
-                }
-                .animate-spin-slow {
-                  animation: spin 12s linear infinite;
-                }
-                @keyframes spin {
-                  100% { transform: rotate(360deg); }
-                }
-                .animate-glow {
-                  box-shadow: 0 0 40px 10px #00bcd4, 0 0 80px 20px #3b82f6;
-                  opacity: 0.15;
-                  animation: glow 2.5s ease-in-out infinite alternate;
-                }
-                @keyframes glow {
-                  0% { opacity: 0.12; }
-                  100% { opacity: 0.22; }
-                }
-                .animate-bounce-slow {
-                  animation: bounce-slow 2.5s infinite;
-                }
-                @keyframes bounce-slow {
-                  0%, 100% { transform: translateY(0); }
-                  50% { transform: translateY(-8px); }
-                }
-              `}</style>
     </>
   );
 };

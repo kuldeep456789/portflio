@@ -326,6 +326,109 @@ const ProjectsList = () => {
   );
 };
 
+// Tech Stack Component
+const TechStack = () => {
+  const techData = {
+    Frontend: [
+      { name: "ReactJs", icon: "⚛️", color: "from-cyan-500/20 to-blue-500/20", borderColor: "border-cyan-500/30" },
+      { name: "NextJs", icon: "▲", color: "from-gray-700/20 to-black/20", borderColor: "border-gray-500/30" },
+      { name: "Recoil", icon: "🔄", color: "from-blue-500/20 to-purple-500/20", borderColor: "border-blue-500/30" },
+      { name: "Zustand", icon: "🐻", color: "from-amber-500/20 to-orange-500/20", borderColor: "border-amber-500/30" },
+      { name: "Redux", icon: "🔮", color: "from-purple-500/20 to-pink-500/20", borderColor: "border-purple-500/30" },
+      { name: "React-Query", icon: "🔍", color: "from-red-500/20 to-pink-500/20", borderColor: "border-red-500/30" },
+      { name: "Tailwind", icon: "💨", color: "from-cyan-400/20 to-blue-600/20", borderColor: "border-cyan-400/30" },
+      { name: "Chakra-UI", icon: "⚡", color: "from-teal-500/20 to-green-500/20", borderColor: "border-teal-500/30" },
+      { name: "Shadcn", icon: "🎨", color: "from-slate-500/20 to-gray-600/20", borderColor: "border-slate-500/30" },
+      { name: "Magic-UI", icon: "✨", color: "from-pink-500/20 to-purple-500/20", borderColor: "border-pink-500/30" },
+      { name: "Material UI", icon: "🎯", color: "from-blue-600/20 to-indigo-600/20", borderColor: "border-blue-600/30" },
+    ],
+    Backend: [
+      { name: "Node", icon: "🟢", color: "from-green-600/20 to-emerald-600/20", borderColor: "border-green-600/30" },
+      { name: "Express", icon: "🚂", color: "from-gray-600/20 to-slate-700/20", borderColor: "border-gray-600/30" },
+      { name: "MongoDB", icon: "🍃", color: "from-green-500/20 to-lime-600/20", borderColor: "border-green-500/30" },
+      { name: "Mongoose", icon: "🦡", color: "from-red-600/20 to-rose-600/20", borderColor: "border-red-600/30" },
+      { name: "MySQL", icon: "🐬", color: "from-blue-500/20 to-cyan-500/20", borderColor: "border-blue-500/30" },
+      { name: "Prisma", icon: "🔷", color: "from-indigo-500/20 to-blue-600/20", borderColor: "border-indigo-500/30" },
+      { name: "Drizzle", icon: "💧", color: "from-emerald-500/20 to-teal-500/20", borderColor: "border-emerald-500/30" },
+      { name: "Redis", icon: "🔴", color: "from-red-500/20 to-orange-500/20", borderColor: "border-red-500/30" },
+      { name: "NextJs", icon: "▲", color: "from-gray-700/20 to-black/20", borderColor: "border-gray-500/30" },
+      { name: "Convex-Db", icon: "🔺", color: "from-orange-500/20 to-red-500/20", borderColor: "border-orange-500/30" },
+      { name: "PostgreSQL", icon: "🐘", color: "from-blue-600/20 to-indigo-700/20", borderColor: "border-blue-600/30" },
+    ],
+    Languages: [
+      { name: "JavaScript", icon: "JS", color: "from-yellow-400/20 to-yellow-600/20", borderColor: "border-yellow-400/30" },
+      { name: "TypeScript", icon: "TS", color: "from-blue-500/20 to-blue-700/20", borderColor: "border-blue-500/30" },
+      { name: "Java", icon: "☕", color: "from-red-600/20 to-orange-600/20", borderColor: "border-red-600/30" },
+      { name: "Python", icon: "🐍", color: "from-blue-400/20 to-yellow-400/20", borderColor: "border-blue-400/30" },
+      { name: "C++", icon: "C++", color: "from-blue-600/20 to-purple-600/20", borderColor: "border-blue-600/30" },
+    ],
+    Other: [
+      { name: "Git", icon: "🔀", color: "from-orange-600/20 to-red-600/20", borderColor: "border-orange-600/30" },
+      { name: "Github", icon: "🐙", color: "from-gray-700/20 to-black/20", borderColor: "border-gray-700/30" },
+      { name: "Docker", icon: "🐳", color: "from-blue-500/20 to-cyan-500/20", borderColor: "border-blue-500/30" },
+      { name: "Postman", icon: "📮", color: "from-orange-500/20 to-red-500/20", borderColor: "border-orange-500/30" },
+      { name: "Cloudinary", icon: "☁️", color: "from-blue-400/20 to-indigo-500/20", borderColor: "border-blue-400/30" },
+      { name: "Linux", icon: "🐧", color: "from-yellow-500/20 to-orange-500/20", borderColor: "border-yellow-500/30" },
+      { name: "Socket-IO", icon: "🔌", color: "from-gray-700/20 to-slate-800/20", borderColor: "border-gray-700/30" },
+    ],
+  };
+
+  return (
+    <div className="mt-12 px-2">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        {Object.entries(techData).map(([category, techs], categoryIndex) => (
+          <motion.div
+            key={category}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: categoryIndex * 0.1 }}
+            className="group"
+          >
+            <div className="relative overflow-hidden rounded-[32px] bg-gradient-to-br from-[#1E293B]/60 to-[#0F172A]/60 border border-white/10 backdrop-blur-xl p-8 hover:border-white/20 transition-all duration-500">
+              {/* Gradient overlay on hover */}
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-purple-500/5 to-pink-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+              {/* Category Title */}
+              <div className="relative z-10 mb-6">
+                <h3 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 mb-2">
+                  {category}
+                </h3>
+                <div className="h-1 w-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full" />
+              </div>
+
+              {/* Tech badges */}
+              <div className="relative z-10 flex flex-wrap gap-3">
+                {techs.map((tech, index) => (
+                  <motion.div
+                    key={tech.name}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: categoryIndex * 0.1 + index * 0.05 }}
+                    whileHover={{ scale: 1.05, y: -2 }}
+                    className={`group/badge relative overflow-hidden rounded-xl bg-gradient-to-br ${tech.color} border ${tech.borderColor} backdrop-blur-sm px-4 py-2.5 cursor-pointer transition-all duration-300`}
+                  >
+                    {/* Shine effect on hover */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover/badge:translate-x-full transition-transform duration-700" />
+
+                    <div className="relative flex items-center gap-2">
+                      <span className="text-lg">{tech.icon}</span>
+                      <span className="text-sm font-semibold text-white/90 group-hover/badge:text-white transition-colors">
+                        {tech.name}
+                      </span>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
 
 // Main component - Enhanced with better animations and loading states
 const ProfessionalProfile = () => {
@@ -370,8 +473,8 @@ const ProfessionalProfile = () => {
   }
 
   return (
-    <section id="experience" className="py-12 md:py-24 px-4 bg-[#000000] text-gray-200 relative overflow-hidden min-h-screen">
-      <AnimatedBackground />
+    <section id="experience" className="py-12 md:py-24 px-4 bg-transparent text-gray-200 relative overflow-hidden min-h-screen">
+      {/* Local background removed to show global background */}
 
       <div className={`max-w-5xl mx-auto relative z-10 transition-all duration-1000 transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
 
