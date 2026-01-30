@@ -192,12 +192,17 @@ const Achievements = () => {
           transition={{ delay: index * 0.1 }}
           className="group cursor-pointer"
         >
-          <div className="aspect-[16/10] overflow-hidden rounded-[24px] mb-6 bg-gradient-to-br from-[#1E293B] to-[#0F172A] border border-white/5 flex items-center justify-center relative group-hover:border-white/10 transition-all duration-500">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-from)_0%,_transparent_70%)] from-yellow-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            <div className="w-full h-full overflow-hidden transform transition-transform duration-700 group-hover:scale-110">
-              <img src={achievement.image} alt={achievement.title} className={`w-full h-full ${achievement.fit || 'object-cover'} opacity-80 group-hover:opacity-100 transition-opacity`} />
+          <div className="aspect-[16/10] overflow-hidden rounded-[32px] mb-6 bg-[#030303]/40 border border-white/5 flex items-center justify-center relative group-hover:border-yellow-500/30 transition-all duration-700 shadow-2xl backdrop-blur-md">
+            <div className="absolute inset-0 bg-gradient-to-tr from-yellow-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+            <div className="w-full h-full overflow-hidden transform transition-all duration-1000 group-hover:scale-105">
+              <img src={achievement.image} alt={achievement.title} className={`w-full h-full ${achievement.fit || 'object-cover'} grayscale group-hover:grayscale-0 opacity-60 group-hover:opacity-100 transition-all`} />
             </div>
-            <div className="absolute bottom-4 right-4 text-[10px] font-mono tracking-widest text-white/50 uppercase font-bold bg-black/50 px-2 py-1 rounded backdrop-blur-sm">
+            <div className="absolute top-6 left-6 flex gap-2 opacity-0 group-hover:opacity-100 transition-all duration-500 transform -translate-x-2 group-hover:translate-x-0">
+              <div className="bg-yellow-500/20 backdrop-blur-xl border border-yellow-500/30 p-2 rounded-xl">
+                <Award className="w-4 h-4 text-yellow-400" />
+              </div>
+            </div>
+            <div className="absolute bottom-6 right-6 text-[10px] font-black tracking-widest text-white/40 uppercase bg-white/5 border border-white/10 px-3 py-1.5 rounded-full backdrop-blur-md group-hover:text-white/80 transition-colors">
               {achievement.date}
             </div>
           </div>
@@ -240,12 +245,17 @@ const Certifications = () => {
           transition={{ delay: index * 0.1 }}
           className="group cursor-pointer"
         >
-          <div className={`aspect-[16/10] overflow-hidden rounded-[24px] mb-6 bg-gradient-to-br from-[#1E293B] to-[#0F172A] border border-white/5 flex items-center justify-center relative group-hover:border-${cert.color}-500/20 transition-all duration-500`}>
-            <div className={`absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-from)_0%,_transparent_70%)] from-${cert.color}-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
-            <div className="w-full h-full overflow-hidden transform transition-transform duration-700 group-hover:scale-110 text-white">
-              <img src={cert.image} alt={cert.title} className={`w-full h-full ${cert.fit || 'object-cover'} opacity-80 group-hover:opacity-100 transition-opacity`} />
+          <div className={`aspect-[16/10] overflow-hidden rounded-[32px] mb-6 bg-[#030303]/40 border border-white/5 flex items-center justify-center relative group-hover:border-${cert.color}-500/30 transition-all duration-700 shadow-2xl backdrop-blur-md`}>
+            <div className={`absolute inset-0 bg-gradient-to-tr from-${cert.color}-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700`} />
+            <div className="w-full h-full overflow-hidden transform transition-all duration-1000 group-hover:scale-105">
+              <img src={cert.image} alt={cert.title} className={`w-full h-full ${cert.fit || 'object-cover'} grayscale group-hover:grayscale-0 opacity-60 group-hover:opacity-100 transition-all`} />
             </div>
-            <div className="absolute top-4 right-4 text-[10px] font-mono tracking-widest text-white/50 uppercase font-bold bg-black/50 px-2 py-1 rounded backdrop-blur-sm">
+            <div className="absolute top-6 left-6 flex gap-2 opacity-0 group-hover:opacity-100 transition-all duration-500 transform -translate-x-2 group-hover:translate-x-0">
+              <div className={`bg-${cert.color}-500/20 backdrop-blur-xl border border-${cert.color}-500/30 p-2 rounded-xl`}>
+                <Sparkles className={`w-4 h-4 text-${cert.color}-400`} />
+              </div>
+            </div>
+            <div className="absolute bottom-6 right-6 text-[10px] font-black tracking-widest text-white/40 uppercase bg-white/5 border border-white/10 px-3 py-1.5 rounded-full backdrop-blur-md group-hover:text-white/80 transition-colors">
               ID: {cert.credentialId.split('-').pop()}
             </div>
           </div>
@@ -280,23 +290,23 @@ const Certifications = () => {
 // Projects Component
 const ProjectsList = () => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12 px-2">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mt-12 px-2">
       {projects.map((project, index) => (
         <motion.div
           key={index}
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: index * 0.1 }}
-          className="group relative overflow-hidden rounded-[32px] bg-[#1E293B]/40 border border-white/10 hover:border-primary/50 transition-all duration-500 min-h-[300px]"
+          transition={{ duration: 0.7, delay: index * 0.1 }}
+          className="group relative overflow-hidden rounded-[40px] bg-[#030303]/40 border border-white/10 hover:border-primary/40 transition-all duration-700 h-[450px] shadow-2xl backdrop-blur-sm"
         >
-          <div className="aspect-video overflow-hidden">
+          <div className="absolute inset-0 overflow-hidden">
             <img
               src={project.image}
               alt={project.title}
-              className="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105 opacity-60 group-hover:opacity-100 transition-opacity"
+              className="w-full h-full object-cover transform transition-all duration-1000 group-hover:scale-110 opacity-40 group-hover:opacity-60"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#030303] via-[#030303]/60 to-transparent" />
           </div>
 
           <div className="p-8 absolute bottom-0 left-0 right-0 transform translate-y-6 group-hover:translate-y-0 transition-all duration-500">

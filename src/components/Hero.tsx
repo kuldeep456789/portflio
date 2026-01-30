@@ -6,6 +6,8 @@ import { useNavigate } from "react-router-dom";
 import websiteImg from '../img/profile.webp';
 import resumeThumb from '../img/kuldeep02-1.webp';
 
+import Typewriter from "./Typewriter";
+
 const Hero = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const navigate = useNavigate();
@@ -118,7 +120,9 @@ const Hero = () => {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.3 }}
             >
-              Hi, I'm <span className="text-primary">Kuldeep Prajapati</span>
+              Hi, I'm <span className="text-primary truncate">
+                <Typewriter words={["Kuldeep Prajapati", "an ML Engineer", "a Full Stack Developer", "a Cloud Architect"]} />
+              </span>
             </motion.h1>
 
             <motion.p
