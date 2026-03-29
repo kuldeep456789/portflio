@@ -1,4 +1,4 @@
-import { GraduationCap, Database, Server, Github, Mail, Linkedin, Menu } from "lucide-react";
+import { GraduationCap, Database, Server, Github, Mail, Linkedin, Menu, Settings, X, Sun, Moon, Monitor } from "lucide-react";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import { useState } from "react";
 import { motion } from "framer-motion";
@@ -10,6 +10,8 @@ import Typewriter from "./Typewriter";
 
 const Hero = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [settingsOpen, setSettingsOpen] = useState(false);
+  const [theme, setTheme] = useState<'light' | 'dark' | 'system'>('system');
   const navigate = useNavigate();
 
   return (
@@ -54,9 +56,30 @@ const Hero = () => {
             >
               Resume
             </motion.a>
+
+            <motion.button
+              id="settings-btn"
+              onClick={() => setSettingsOpen(true)}
+              whileHover={{ scale: 1.1, rotate: 45 }}
+              whileTap={{ scale: 0.9 }}
+              className="w-9 h-9 flex items-center justify-center rounded-full bg-white/5 border border-white/10 hover:bg-white/10 hover:border-primary/40 transition-all"
+              aria-label="Open Settings"
+            >
+              <Settings className="h-4 w-4 text-gray-300 hover:text-white transition-colors" />
+            </motion.button>
           </div>
 
-          <div className="md:hidden">
+          <div className="md:hidden flex items-center gap-2">
+            <motion.button
+              id="settings-btn-mobile"
+              onClick={() => setSettingsOpen(true)}
+              whileHover={{ scale: 1.1, rotate: 45 }}
+              whileTap={{ scale: 0.9 }}
+              className="w-9 h-9 flex items-center justify-center rounded-full bg-white/5 border border-white/10 hover:bg-white/10 hover:border-primary/40 transition-all"
+              aria-label="Open Settings"
+            >
+              <Settings className="h-4 w-4 text-gray-300" />
+            </motion.button>
             <button
               onClick={() => setMenuOpen(!menuOpen)}
               className="w-10 h-10 flex items-center justify-center rounded-full bg-white/5 border border-white/10 hover:bg-white/10 transition-all active:scale-90"
@@ -79,6 +102,102 @@ const Hero = () => {
           </motion.div>
         )}
       </nav>
+
+      {/* Settings Modal */}
+      {settingsOpen && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="fixed inset-0 z-[100] flex items-center justify-center p-4"
+          onClick={() => setSettingsOpen(false)}
+        >
+          {/* Backdrop */}
+          <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" />
+
+          {/* Modal */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.9, y: 20 }}
+            transition={{ type: 'spring', stiffness: 300, damping: 25 }}
+            className="relative z-10 w-full max-w-sm rounded-2xl bg-[#111827]/95 border border-white/10 backdrop-blur-2xl shadow-[0_25px_60px_rgba(0,0,0,0.7)] p-6"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Header */}
+            <div className="flex items-start justify-between mb-6">
+              <div>
+                <h2 className="text-white text-xl font-bold">Preferences</h2>
+                <p className="text-gray-500 text-sm mt-0.5">Customize your experience</p>
+              </div>
+              <button
+                onClick={() => setSettingsOpen(false)}
+                className="w-8 h-8 flex items-center justify-center rounded-full bg-white/5 hover:bg-white/10 border border-white/10 transition-all group"
+                aria-label="Close Settings"
+              >
+                <X className="h-4 w-4 text-gray-400 group-hover:text-white transition-colors" />
+              </button>
+            </div>
+
+            {/* Divider */}
+            <div className="h-[1px] bg-white/5 mb-6" />
+
+            {/* Appearance Section */}
+            <div className="mb-6">
+              <p className="text-gray-400 text-xs font-semibold uppercase tracking-widest mb-4">Appearance</p>
+              <div className="grid grid-cols-3 gap-3">
+                {([
+                  { id: 'light', label: 'Light', icon: Sun },
+                  { id: 'dark',  label: 'Dark',  icon: Moon },
+                  { id: 'system', label: 'System', icon: Monitor },
+                ] as const).map(({ id, label, icon: Icon }) => (
+                  <motion.button
+                    key={id}
+                    whileHover={{ scale: 1.03 }}
+                    whileTap={{ scale: 0.97 }}
+                    onClick={() => setTheme(id)}
+                    className={`flex flex-col items-center gap-2.5 p-4 rounded-xl border transition-all duration-200 ${
+                      theme === id
+                        ? 'bg-white/10 border-primary/50 text-white shadow-[0_0_15px_rgba(99,102,241,0.2)]'
+                        : 'bg-white/[0.03] border-white/[0.06] text-gray-400 hover:bg-white/[0.07] hover:text-gray-200'
+                    }`}
+                  >
+                    <Icon className="h-5 w-5" />
+                    <span className="text-[11px] font-semibold">{label}</span>
+                  </motion.button>
+                ))}
+              </div>
+            </div>
+
+            {/* Divider */}
+            <div className="h-[1px] bg-white/5 mb-6" />
+
+            {/* Communication Section */}
+            <div>
+              <p className="text-gray-400 text-xs font-semibold uppercase tracking-widest mb-4">Communication</p>
+              <div className="space-y-3">
+                {[
+                  { label: 'Email notifications', defaultOn: true },
+                  { label: 'Sound effects', defaultOn: false },
+                ].map(({ label, defaultOn }) => (
+                  <div key={label} className="flex items-center justify-between">
+                    <span className="text-gray-300 text-sm">{label}</span>
+                    <div
+                      className={`relative w-11 h-6 rounded-full transition-all duration-300 cursor-pointer ${
+                        defaultOn ? 'bg-primary' : 'bg-white/10'
+                      }`}
+                    >
+                      <div className={`absolute top-0.5 w-5 h-5 rounded-full bg-white shadow-md transition-all duration-300 ${
+                        defaultOn ? 'left-5' : 'left-0.5'
+                      }`} />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+        </motion.div>
+      )}
 
       <section className="min-h-screen relative flex items-center justify-center text-white pt-24 p-4 bg-transparent overflow-hidden">
         <motion.div

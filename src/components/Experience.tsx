@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import {
   Award, Download, FileText, Clock, ChevronRight, Star, ExternalLink, Mail, Calendar, CheckCircle, GraduationCap, Sparkles, Code, Briefcase, Users, Upload, ArrowRight
 } from "lucide-react";
+import TiltCard from './TiltCard';
 import resumeThumb from '../img/kuldeep02-1.webp';
 import blogImg from '../img/blog.webp';
 import trafficImg from '../img/traffic.png';
@@ -184,14 +185,14 @@ const Achievements = () => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16 mt-12 px-2">
       {achievements.map((achievement, index) => (
-        <motion.div
-          key={index}
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: index * 0.1 }}
-          className="group cursor-pointer"
-        >
+        <TiltCard key={index} intensity={10} accent="rgba(234,179,8,0.4)">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: index * 0.1 }}
+            className="group cursor-pointer"
+          >
           <div className="aspect-[16/10] overflow-hidden rounded-[32px] mb-6 bg-[#030303]/40 border border-white/5 flex items-center justify-center relative group-hover:border-yellow-500/30 transition-all duration-700 shadow-2xl backdrop-blur-md">
             <div className="absolute inset-0 bg-gradient-to-tr from-yellow-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
             <div className="w-full h-full overflow-hidden transform transition-all duration-1000 group-hover:scale-105">
@@ -226,7 +227,8 @@ const Achievements = () => {
               </a>
             </div>
           </div>
-        </motion.div>
+          </motion.div>
+        </TiltCard>
       ))}
     </div>
   );
@@ -237,14 +239,14 @@ const Certifications = () => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16 mt-12 px-2">
       {certifications.map((cert, index) => (
-        <motion.div
-          key={index}
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: index * 0.1 }}
-          className="group cursor-pointer"
-        >
+        <TiltCard key={index} intensity={10} accent="rgba(59,130,246,0.4)">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: index * 0.1 }}
+            className="group cursor-pointer"
+          >
           <div className={`aspect-[16/10] overflow-hidden rounded-[32px] mb-6 bg-[#030303]/40 border border-white/5 flex items-center justify-center relative group-hover:border-${cert.color}-500/30 transition-all duration-700 shadow-2xl backdrop-blur-md`}>
             <div className={`absolute inset-0 bg-gradient-to-tr from-${cert.color}-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700`} />
             <div className="w-full h-full overflow-hidden transform transition-all duration-1000 group-hover:scale-105">
@@ -279,7 +281,8 @@ const Certifications = () => {
               </a>
             </div>
           </div>
-        </motion.div>
+          </motion.div>
+        </TiltCard>
       ))}
     </div>
   );

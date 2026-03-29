@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import Contact from "./pages/contact";
 import GeometricBackground from "./components/GeometricBackground";
+import MouseToy from "./components/MouseToy";
 
 const queryClient = new QueryClient();
 
@@ -17,6 +18,7 @@ const App = () => (
       <BrowserRouter>
         <div className="relative min-h-screen font-inter selection:bg-indigo-500/30">
           <GeometricBackground />
+          <MouseToy />
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/contact" element={<Contact />} />
