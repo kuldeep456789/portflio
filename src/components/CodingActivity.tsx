@@ -16,13 +16,13 @@ interface DayActivity {
 const WEEKS = 52;
 const DAYS_PER_WEEK = 7;
 
-// Colors matching the LeetCode/GitHub dark mode contribution graph
+// Colors matching the GitHub-style green contribution graph
 const LEVEL_COLORS: Record<ActivityLevel, string> = {
-  0: "rgba(255, 255, 255, 0.05)", // Empty (dark grey)
-  1: "#0e4429", // Level 1 (dark green)
-  2: "#006d32", // Level 2
-  3: "#26a641", // Level 3
-  4: "#39d353", // Level 4 (bright green)
+  0: "rgba(255, 255, 255, 0.05)",
+  1: "#0b2a1a",
+  2: "#14532d",
+  3: "#16a34a",
+  4: "#22c55e",
 };
 
 const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
@@ -157,16 +157,12 @@ const CodingActivity = () => {
 
   return (
     <section id="activity" className="relative py-24 px-4 overflow-hidden">
-      {/* Ambient glowing background blobs */}
+      {/* Ambient background accents (static) */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <motion.div 
-          animate={{ rotate: 360 }}
-          transition={{ duration: 150, repeat: Infinity, ease: "linear" }}
-          className="absolute top-1/2 left-1/2 w-[800px] h-[800px] -mt-[400px] -ml-[400px]"
-        >
-          <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-emerald-500/10 rounded-full blur-[120px]" />
-          <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-[#ffa116]/5 rounded-full blur-[120px]" />
-        </motion.div>
+        <div className="absolute top-1/2 left-1/2 w-[800px] h-[800px] -mt-[400px] -ml-[400px]">
+          <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-green-600/10 rounded-full blur-[120px]" />
+          <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-green-400/10 rounded-full blur-[120px]" />
+        </div>
       </div>
 
       <div className="max-w-6xl mx-auto relative z-10">
@@ -193,7 +189,7 @@ const CodingActivity = () => {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.7, ease: "easeOut" }}
         >
-          <TiltCard intensity={5} className="w-full" accent="#26a641">
+          <TiltCard intensity={5} className="w-full" accent="#16a34a">
             <div className="rounded-[24px] border border-white/[0.08] bg-[#0a0f1a]/80 backdrop-blur-2xl shadow-2xl p-6 md:p-8 overflow-hidden relative group">
               
               {/* Top Header stats area simulating LeetCode */}
@@ -201,7 +197,7 @@ const CodingActivity = () => {
                 
                 {/* Left Stats */}
                 <div className="flex items-center gap-3">
-                  <span className="text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-b from-emerald-300 to-green-600 drop-shadow-sm tracking-tighter">
+                  <span className="text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-b from-green-300 to-green-600 drop-shadow-sm tracking-tighter">
                     847
                   </span>
                   <div className="flex flex-col">
@@ -218,7 +214,7 @@ const CodingActivity = () => {
                     <span>Total active days: <span className="text-white font-bold">294</span></span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <Flame className="w-4 h-4 text-orange-500" />
+                    <Flame className="w-4 h-4 text-green-400" />
                     <span>Max streak: <span className="text-white font-bold">42</span></span>
                   </div>
                   
@@ -291,15 +287,15 @@ const CodingActivity = () => {
                 {/* Check Real Activity CTA Button */}
                 <div className="relative group/btn">
                   {/* Glowing background ring */}
-                  <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-[#ffa116] via-orange-500 to-[#ffa116] opacity-30 blur-md group-hover/btn:opacity-100 group-hover/btn:duration-200 transition-all duration-500" />
+                  <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-green-600 via-green-500 to-green-600 opacity-30 blur-md group-hover/btn:opacity-100 group-hover/btn:duration-200 transition-all duration-500" />
                   
                   <a 
                     href="https://leetcode.com/u/Kp_prajapati/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="relative inline-flex items-center gap-3 px-8 py-3 rounded-full bg-[#0a0f1a] border border-[#ffa116]/40 text-white font-bold hover:bg-[#ffa116]/10 transition-colors duration-300 overflow-hidden"
+                    className="relative inline-flex items-center gap-3 px-8 py-3 rounded-full bg-[#0a0f1a] border border-green-500/40 text-white font-bold hover:bg-green-500/10 transition-colors duration-300 overflow-hidden"
                   >
-                    <LeetCodeIcon className="w-5 h-5 text-[#ffa116]" />
+                    <LeetCodeIcon className="w-5 h-5 text-green-400" />
                     <span className="relative z-10">Check Real Activity</span>
                     <ArrowRight className="w-4 h-4 opacity-60 group-hover/btn:translate-x-1 group-hover/btn:opacity-100 transition-all" />
                     

@@ -111,7 +111,7 @@ const Contact = () => {
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="p-3 rounded-xl bg-slate-800/50 border border-slate-700/50 text-green-500">
+                <div className="p-3 rounded-xl bg-slate-800/50 border border-slate-700/50 text-blue-500">
                   <MapPin className="w-5 h-5" />
                 </div>
                 <div>

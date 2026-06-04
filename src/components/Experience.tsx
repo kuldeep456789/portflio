@@ -3,10 +3,9 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import {
-  Award, Download, FileText, Clock, ChevronRight, Star, ExternalLink, Mail, Calendar, CheckCircle, GraduationCap, Sparkles, Code, Briefcase, Users, Upload, ArrowRight
+  Award, Clock, ChevronRight, Star, ExternalLink, Mail, Calendar, CheckCircle, GraduationCap, Sparkles, Code, Briefcase, Users, Upload, ArrowRight
 } from "lucide-react";
 import TiltCard from './TiltCard';
-import resumeThumb from '../img/kuldeep02-1.webp';
 import blogImg from '../img/blog.webp';
 import trafficImg from '../img/traffic.png';
 import leetcodeProfile from '../img/leetcode_profile.png';
@@ -65,7 +64,7 @@ const certifications = [
     date: "Feb 2025",
     expires: "N/A",
     credentialId: "WEB-E-2025-12345",
-    color: "green",
+    color: "blue",
     image: hackathonImg,
     fit: "object-contain"
   },
@@ -75,7 +74,7 @@ const certifications = [
     date: "May 2024",
     expires: "N/A",
     credentialId: "CSW2024-13223",
-    color: "orange",
+    color: "blue",
     image: cipherImg,
     fit: "object-contain"
   }
@@ -100,84 +99,10 @@ const projects = [
 ];
 
 const colorMap = {
-  blue: { bg: "from-blue-600/30 to-purple-600/30", tagBg: "bg-blue-900/30", text: "text-blue-300", hover: "hover:text-blue-300" },
-  cyan: { bg: "from-cyan-600/30 to-blue-600/30", tagBg: "bg-cyan-900/30", text: "text-cyan-300", hover: "hover:text-cyan-300" },
-  purple: { bg: "from-purple-600/30 to-blue-600/30", tagBg: "bg-purple-900/30", text: "text-purple-300", hover: "hover:text-purple-300" },
-  green: { bg: "from-green-600/30 to-blue-600/30", tagBg: "bg-green-900/30", text: "text-green-300", hover: "hover:text-green-300" },
+  blue: { bg: "from-blue-700/30 to-blue-500/30", tagBg: "bg-blue-900/30", text: "text-blue-300", hover: "hover:text-blue-300" },
 };
 
 // Achievements, Certifications, and Resume tabs are handled below
-
-
-
-// Enhanced Animated Background with improved performance
-const AnimatedBackground = () => {
-  return (
-    <div className="absolute inset-0 overflow-hidden">
-      <div className="absolute w-full h-full">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-blob"></div>
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-blob animation-delay-2000"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl animate-blob animation-delay-4000"></div>
-        <div className="absolute bottom-1/4 left-1/4 w-64 h-64 bg-green-500/10 rounded-full blur-3xl animate-blob animation-delay-3000"></div>
-        <div className="absolute top-1/4 right-1/4 w-64 h-64 bg-yellow-500/10 rounded-full blur-3xl animate-blob animation-delay-5000"></div>
-      </div>
-
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(255,255,255,0.15)_1px,transparent_0)] bg-[length:20px_20px] opacity-30"></div>
-
-      <div className="absolute top-1/4 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-400/20 to-transparent animate-scan"></div>
-      <div className="absolute top-2/3 left-0 right-0 h-px bg-gradient-to-r from-transparent via-purple-400/20 to-transparent animate-scan animation-delay-3000"></div>
-      {/* <div className="absolute top-1/2 left-0 right-0 h-px bg-gradient-to-r from-transparent via-cyan-400/20 to-transparent animate-scan animation-delay-5000"></div> */}
-    </div>
-  );
-};
-
-
-// Professional Resume Preview Component
-const ResumePreview = () => {
-  return (
-    <motion.div
-      initial={{ opacity: 0, scale: 0.95 }}
-      animate={{ opacity: 1, scale: 1 }}
-      className="max-w-4xl mx-auto mt-12 group"
-    >
-      <div className="relative rounded-[32px] overflow-hidden bg-[#1E293B]/40 border border-white/10 shadow-2xl transition-all duration-700 hover:border-blue-500/30">
-        {/* Hover Overlay for "Ready for Hire" */}
-        <div className="absolute inset-x-0 top-0 z-20 flex justify-center p-8 opacity-0 group-hover:opacity-100 transition-all duration-500 transform -translate-y-4 group-hover:translate-y-0">
-          <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-green-500/10 border border-green-500/20 backdrop-blur-md">
-            <span className="relative flex h-3 w-3">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
-            </span>
-            <span className="text-green-400 font-bold tracking-widest uppercase text-xs">Ready for Hire</span>
-          </div>
-        </div>
-
-        {/* Premium Image Container */}
-        <div className="relative aspect-[1/1.414] overflow-hidden cursor-zoom-in">
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0B0D11] via-transparent to-transparent opacity-60 z-10" />
-          <img
-            src={resumeThumb}
-            alt="Resume"
-            className="w-full h-auto object-contain transform transition-transform duration-1000 group-hover:scale-105"
-          />
-        </div>
-      </div>
-
-      {/* Action Footer */}
-      <div className="mt-8 flex justify-center gap-4">
-        <a
-          href={resumeThumb}
-          download
-          className="flex items-center gap-2 px-8 py-4 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold hover:shadow-[0_0_30px_rgba(37,99,235,0.3)] transition-all active:scale-95"
-        >
-          <Download className="w-5 h-5" />
-          Download Resume
-        </a>
-      </div>
-    </motion.div>
-  );
-};
-
 
 
 
@@ -193,14 +118,14 @@ const Achievements = () => {
             transition={{ delay: index * 0.1 }}
             className="group cursor-pointer"
           >
-          <div className="aspect-[16/10] overflow-hidden rounded-[32px] mb-6 bg-[#030303]/40 border border-white/5 flex items-center justify-center relative group-hover:border-yellow-500/30 transition-all duration-700 shadow-2xl backdrop-blur-md">
-            <div className="absolute inset-0 bg-gradient-to-tr from-yellow-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+          <div className="aspect-[16/10] overflow-hidden rounded-[32px] mb-6 bg-[#030303]/40 border border-white/5 flex items-center justify-center relative group-hover:border-blue-500/30 transition-all duration-700 shadow-2xl backdrop-blur-md">
+            <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
             <div className="w-full h-full overflow-hidden transform transition-all duration-1000 group-hover:scale-105">
               <img src={achievement.image} alt={achievement.title} className={`w-full h-full ${achievement.fit || 'object-cover'} grayscale group-hover:grayscale-0 opacity-60 group-hover:opacity-100 transition-all`} />
             </div>
             <div className="absolute top-6 left-6 flex gap-2 opacity-0 group-hover:opacity-100 transition-all duration-500 transform -translate-x-2 group-hover:translate-x-0">
-              <div className="bg-yellow-500/20 backdrop-blur-xl border border-yellow-500/30 p-2 rounded-xl">
-                <Award className="w-4 h-4 text-yellow-400" />
+              <div className="bg-blue-500/20 backdrop-blur-xl border border-blue-500/30 p-2 rounded-xl">
+                <Award className="w-4 h-4 text-blue-300" />
               </div>
             </div>
             <div className="absolute bottom-6 right-6 text-[10px] font-black tracking-widest text-white/40 uppercase bg-white/5 border border-white/10 px-3 py-1.5 rounded-full backdrop-blur-md group-hover:text-white/80 transition-colors">
@@ -209,7 +134,7 @@ const Achievements = () => {
           </div>
 
           <div className="space-y-3">
-            <h3 className="text-xl font-semibold text-white leading-tight group-hover:text-yellow-400 transition-colors">
+            <h3 className="text-xl font-semibold text-white leading-tight group-hover:text-blue-300 transition-colors">
               {achievement.title}
             </h3>
             <p className="text-sm font-medium text-slate-400 uppercase tracking-widest">
@@ -400,14 +325,14 @@ const TechStack = () => {
           >
             <div className="relative overflow-hidden rounded-[32px] bg-gradient-to-br from-[#1E293B]/60 to-[#0F172A]/60 border border-white/10 backdrop-blur-xl p-8 hover:border-white/20 transition-all duration-500">
               {/* Gradient overlay on hover */}
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-purple-500/5 to-pink-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
               {/* Category Title */}
               <div className="relative z-10 mb-6">
-                <h3 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 mb-2">
+                <h3 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-blue-400 to-blue-600 mb-2">
                   {category}
                 </h3>
-                <div className="h-1 w-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full" />
+                <div className="h-1 w-16 bg-gradient-to-r from-blue-500 to-blue-700 rounded-full" />
               </div>
 
               {/* Tech badges */}
@@ -420,7 +345,7 @@ const TechStack = () => {
                     viewport={{ once: true }}
                     transition={{ delay: categoryIndex * 0.1 + index * 0.05 }}
                     whileHover={{ scale: 1.05, y: -2 }}
-                    className={`group/badge relative overflow-hidden rounded-xl bg-gradient-to-br ${tech.color} border ${tech.borderColor} backdrop-blur-sm px-4 py-2.5 cursor-pointer transition-all duration-300`}
+                    className="group/badge relative overflow-hidden rounded-xl bg-gradient-to-br from-blue-600/20 to-blue-500/20 border border-blue-500/30 backdrop-blur-sm px-4 py-2.5 cursor-pointer transition-all duration-300"
                   >
                     {/* Shine effect on hover */}
                     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover/badge:translate-x-full transition-transform duration-700" />
@@ -445,11 +370,9 @@ const TechStack = () => {
 
 // Main component - Enhanced with better animations and loading states
 const ProfessionalProfile = () => {
-  const [activeTab, setActiveTab] = useState("resume");
-  const [expandedIndex, setExpandedIndex] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [isVisible, setIsVisible] = useState(false);
-  const [theme, setTheme] = useState("blue"); // New theme state for dynamic theming
+  const theme = "blue"; // Fixed blue palette
 
   // Enhanced effect for smoother page loading
   useEffect(() => {
@@ -467,15 +390,6 @@ const ProfessionalProfile = () => {
     };
   }, []);
 
-
-  // Enhanced tabs with better visual styling
-  const tabs = [
-    { id: "resume", label: "Resume", icon: <FileText className="h-4 w-4" /> },
-    { id: "projects", label: "Projects", icon: <Briefcase className="h-4 w-4" /> },
-    { id: "achievements", label: "Achievements", icon: <Award className="h-4 w-4" /> },
-    { id: "certifications", label: "Certifications", icon: <GraduationCap className="h-4 w-4" /> },
-  ];
-
   // Loading state UI
   if (isLoading) {
     return (
@@ -490,51 +404,9 @@ const ProfessionalProfile = () => {
       {/* Local background removed to show global background */}
 
       <div className={`max-w-5xl mx-auto relative z-10 transition-all duration-1000 transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-
-        <div className="flex flex-wrap justify-center items-center gap-4 mb-10">
-          <div className="flex flex-wrap justify-center gap-2">
-            {tabs.map((tab) => (
-              <button
-                key={tab.id}
-                onClick={() => setActiveTab(tab.id)}
-                className={`flex items-center gap-2 px-5 py-2.5 rounded-full transition-all duration-300 ${activeTab === tab.id
-                  ? `bg-gradient-to-r from-${theme}-600 to-purple-600 text-white shadow-lg shadow-${theme}-900/20`
-                  : "bg-gray-800/50 text-gray-300 hover:bg-gray-700/70"
-                  }`}
-              >
-                {tab.icon}
-                <span>{tab.label}</span>
-              </button>
-            ))}
-          </div>
+        <div className="animate-fadeIn">
+          <ProjectsList />
         </div>
-
-
-        {activeTab === "resume" && (
-          <div className="animate-fadeIn">
-            <ResumePreview />
-          </div>
-        )}
-
-        {activeTab === "projects" && (
-          <div className="animate-fadeIn">
-            <ProjectsList />
-          </div>
-        )}
-
-        {activeTab === "achievements" && (
-          <div className="animate-fadeIn">
-            <Achievements />
-          </div>
-        )}
-
-        {activeTab === "certifications" && (
-          <div className="animate-fadeIn">
-            <Certifications />
-          </div>
-        )}
-
-
       </div>
     </section>
   );

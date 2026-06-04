@@ -1,12 +1,10 @@
-import { GraduationCap, Database, Server, Github, Mail, Linkedin, Menu, Settings, X, Sun, Moon, Monitor } from "lucide-react";
+import { GraduationCap, Database, Server, Github, Mail, Linkedin, Menu, Settings, X, Sun, Moon, Monitor, FileText, Award, BadgeCheck } from "lucide-react";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import websiteImg from '../img/profile.webp';
-import resumeThumb from '../img/kuldeep02-1.webp';
-
-import Typewriter from "./Typewriter";
+import resumeImage from '../img/photo.pdf';
 
 const Hero = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -23,7 +21,6 @@ const Hero = () => {
             className="flex items-center gap-3 cursor-pointer group"
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           >
-            <div className="w-9 h-9 rounded-full bg-gradient-to-tr from-primary to-purple-600 flex items-center justify-center text-white font-black text-xs shadow-lg group-hover:rotate-12 transition-transform duration-500">KP</div>
             <div className="flex flex-col leading-none">
               <span className="text-white text-[10px] font-black tracking-[0.2em] uppercase">Kuldeep</span>
               <span className="text-gray-500 text-[9px] font-bold tracking-[0.1em] uppercase group-hover:text-primary transition-colors">Prajapati</span>
@@ -47,7 +44,7 @@ const Hero = () => {
             <div className="h-4 w-[1px] bg-white/10"></div>
 
             <motion.a
-              href={resumeThumb}
+              href={resumeImage}
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.05, y: -1 }}
@@ -98,7 +95,7 @@ const Hero = () => {
             <a href="#about" onClick={() => setMenuOpen(false)} className="text-[10px] font-black uppercase tracking-[0.2em] py-4 border-b border-white/5 w-full text-center">About</a>
             <a href="#experience" onClick={() => setMenuOpen(false)} className="text-[10px] font-black uppercase tracking-[0.2em] py-4 border-b border-white/5 w-full text-center">Projects</a>
             <a href="#contact" onClick={() => setMenuOpen(false)} className="text-[10px] font-black uppercase tracking-[0.2em] py-4 border-b border-white/5 w-full text-center">Contact</a>
-            <a href={resumeThumb} target="_blank" className="w-full py-4 rounded-xl bg-white text-black text-[10px] font-black uppercase tracking-[0.2em] text-center">View Resume</a>
+            <a href={resumeImage} target="_blank" className="w-full py-4 rounded-xl bg-white text-black text-[10px] font-black uppercase tracking-[0.2em] text-center">View Resume</a>
           </motion.div>
         )}
       </nav>
@@ -213,7 +210,7 @@ const Hero = () => {
             className="relative mb-8 md:mb-0 md:order-2 group"
           >
             <div className="relative z-10 p-2 rounded-full bg-black shadow-2xl border border-white/10 group-hover:border-primary/50 transition-all duration-500">
-              <Avatar className="w-64 h-64 md:w-80 md:h-80 shadow-2xl transition-transform duration-700 group-hover:scale-[1.02] overflow-hidden">
+              <Avatar className="w-72 h-72 md:w-[22rem] md:h-[22rem] lg:w-[23rem] lg:h-[23rem] shadow-2xl transition-transform duration-700 group-hover:scale-[1.02] overflow-hidden">
                 <AvatarImage
                   src={websiteImg}
                   alt="Profile"
@@ -234,15 +231,22 @@ const Hero = () => {
             className="flex-1"
           >
             <motion.h1
-              className="text-3xl md:text-6xl font-bold mb-6"
+              className="text-3xl md:text-6xl font-bold mb-4"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.3 }}
             >
-              Hi, I'm <span className="text-primary truncate">
-                <Typewriter words={["Kuldeep Prajapati", "an ML Engineer", "a Full Stack Developer", "a Cloud Architect"]} />
-              </span>
+              I am Kuldeep Prajapati
             </motion.h1>
+
+            <motion.h2
+              className="mb-5 text-xl font-semibold text-primary md:text-3xl"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.4 }}
+            >
+              Machine Learning Engineer & AI Builder
+            </motion.h2>
 
             <motion.p
               className="text-lg md:text-2xl mb-8 text-gray-300 max-w-2xl px-4 md:px-0 leading-relaxed"
@@ -250,32 +254,21 @@ const Hero = () => {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5, duration: 0.8 }}
             >
-              I bridge the gap between <span className="text-white font-medium">ambitious ideas</span> and <span className="text-primary font-medium">scalable reality</span> through expertise in{" "}
-              <span className="skill-text ml-highlight relative">
-                Machine Learning
-                <span className="skill-underline ml-style"></span>
-              </span>, {" "}
-              <span className="skill-text devops-highlight relative">
-                Cloud Architecture
-                <span className="skill-underline devops-style"></span>
-              </span>, and{" "}
-              <span className="skill-text fullstack-highlight relative">
-                Modern Web Engineering
-                <span className="skill-underline fullstack-style"></span>
-              </span>.
+              Designing intelligent, scalable, and high-performance systems across AI,
+              cloud infrastructure, and modern full-stack engineering.
             </motion.p>
 
-            <div className="flex flex-wrap justify-center md:justify-start gap-4 mb-12 px-4 md:px-0">
+            <div className="flex flex-wrap justify-center md:justify-start gap-3 sm:gap-4 mb-12 px-4 md:px-0">
               <motion.div
                 whileHover={{ scale: 1.05, y: -5 }}
                 transition={{ duration: 0.3 }}
-                className="flex flex-col items-center gap-2 p-4 bg-gradient-to-b from-gray-800/80 to-gray-900/80 rounded-xl shadow-lg border border-primary/20 hover:border-primary/40 cursor-pointer"
+                className="flex h-32 w-[7.25rem] sm:w-32 flex-col items-center justify-center gap-2 p-4 bg-gradient-to-b from-gray-800/80 to-gray-900/80 rounded-xl shadow-lg border border-primary/20 hover:border-primary/40 cursor-pointer"
                 onClick={() => navigate('/tranner')}
               >
                 <div className="p-2 rounded-full bg-primary/10">
                   <Database className="text-primary h-6 md:h-8 w-6 md:w-8" />
                 </div>
-                <span className="font-medium text-sm md:text-base ml-highlight">
+                <span className="whitespace-nowrap text-sm font-medium ml-highlight">
                   ML Engineer
                 </span>
                 <span className="text-xs text-gray-400">AI & Algorithms</span>
@@ -284,12 +277,12 @@ const Hero = () => {
               <motion.div
                 whileHover={{ scale: 1.05, y: -5 }}
                 transition={{ duration: 0.3 }}
-                className="flex flex-col items-center gap-2 p-4 bg-gradient-to-b from-gray-800/80 to-gray-900/80 rounded-xl shadow-lg border border-primary/20 hover:border-primary/40 cursor-pointer"
+                className="flex h-32 w-[7.25rem] sm:w-32 flex-col items-center justify-center gap-2 p-4 bg-gradient-to-b from-gray-800/80 to-gray-900/80 rounded-xl shadow-lg border border-primary/20 hover:border-primary/40 cursor-pointer"
               >
                 <div className="p-2 rounded-full bg-primary/10">
                   <GraduationCap className="text-primary h-6 md:h-8 w-6 md:w-8" />
                 </div>
-                <span className="font-medium text-sm md:text-base fullstack-highlight">
+                <span className="whitespace-nowrap text-sm font-medium fullstack-highlight">
                   Python
                 </span>
                 <span className="text-xs text-gray-400">DSA/OOPS/Algo</span>
@@ -298,12 +291,12 @@ const Hero = () => {
               <motion.div
                 whileHover={{ scale: 1.05, y: -5 }}
                 transition={{ duration: 0.3 }}
-                className="flex flex-col items-center gap-2 p-4 bg-gradient-to-b from-gray-800/80 to-gray-900/80 rounded-xl shadow-lg border border-primary/20 hover:border-primary/40 cursor-pointer"
+                className="flex h-32 w-[7.25rem] sm:w-32 flex-col items-center justify-center gap-2 p-4 bg-gradient-to-b from-gray-800/80 to-gray-900/80 rounded-xl shadow-lg border border-primary/20 hover:border-primary/40 cursor-pointer"
               >
                 <div className="p-2 rounded-full bg-primary/10">
                   <Server className="text-primary h-6 md:h-8 w-6 md:w-8" />
                 </div>
-                <span className="font-medium text-sm md:text-base devops-highlight">
+                <span className="whitespace-nowrap text-sm font-medium devops-highlight">
                   DevOps
                 </span>
                 <span className="text-xs text-gray-400">CI/CD & Cloud</span>
@@ -312,16 +305,33 @@ const Hero = () => {
               <motion.div
                 whileHover={{ scale: 1.05, y: -5 }}
                 transition={{ duration: 0.3 }}
-                className="flex flex-col items-center gap-2 p-4 bg-gradient-to-b from-gray-800/80 to-gray-900/80 rounded-xl shadow-lg border border-primary/20 hover:border-primary/40 cursor-pointer"
+                className="flex h-32 w-[7.25rem] sm:w-32 flex-col items-center justify-center gap-2 p-4 bg-gradient-to-b from-gray-800/80 to-gray-900/80 rounded-xl shadow-lg border border-primary/20 hover:border-primary/40 cursor-pointer"
               >
                 <div className="p-2 rounded-full bg-primary/10">
                   <GraduationCap className="text-primary h-6 md:h-8 w-6 md:w-8" />
                 </div>
-                <span className="font-medium text-sm md:text-base fullstack-highlight">
+                <span className="whitespace-nowrap text-sm font-medium fullstack-highlight">
                   Full Stack
                 </span>
                 <span className="text-xs text-gray-400">Web Dev</span>
               </motion.div>
+
+              <motion.a
+                href={resumeImage}
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.05, y: -5 }}
+                transition={{ duration: 0.3 }}
+                className="flex h-32 w-[7.25rem] sm:w-32 flex-col items-center justify-center gap-2 p-4 bg-gradient-to-b from-orange-500/20 via-gray-800/80 to-gray-900/80 rounded-xl shadow-[0_0_24px_rgba(249,115,22,0.18)] border border-orange-400/50 ring-1 ring-orange-400/20 hover:border-orange-300 hover:ring-orange-300/40 hover:shadow-[0_0_32px_rgba(249,115,22,0.34)] cursor-pointer"
+              >
+                <div className="p-2 rounded-full bg-orange-400/15 ring-1 ring-orange-300/30">
+                  <FileText className="text-orange-300 h-6 md:h-8 w-6 md:w-8" />
+                </div>
+                <span className="whitespace-nowrap text-sm font-semibold tracking-[0.08em] text-orange-100">
+                  Resume
+                </span>
+                <span className="text-xs text-orange-200/75">Builder</span>
+              </motion.a>
             </div>
 
             <div className="flex flex-wrap justify-center md:justify-start gap-4 px-4 md:px-0">
@@ -337,228 +347,160 @@ const Hero = () => {
               >
                 <Mail size={18} /> Contact Me
               </a>
+              <a
+                href="#experience"
+                className="gap-2 bg-gray-800/50 hover:scale-105 transition border border-gray-700 hover:border-primary px-4 py-2 rounded-md flex items-center"
+              >
+                <Award size={18} /> Achievements
+              </a>
+              <a
+                href="#experience"
+                className="gap-2 bg-gray-800/50 hover:scale-105 transition border border-gray-700 hover:border-primary px-4 py-2 rounded-md flex items-center"
+              >
+                <BadgeCheck size={18} /> Certifications
+              </a>
             </div>
           </motion.div>
         </motion.div>
       </section>
 
-      <section className="relative py-20 px-4 bg-transparent overflow-hidden">
+      <section className="relative pt-20 pb-24 px-4 bg-transparent overflow-hidden">
+        <div className="absolute inset-0">
+          <div className="absolute -top-32 right-10 h-72 w-72 rounded-full bg-blue-500/10 blur-3xl" />
+          <div className="absolute bottom-0 left-0 h-80 w-80 rounded-full bg-blue-700/10 blur-3xl" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(255,255,255,0.08)_1px,transparent_0)] bg-[length:22px_22px] opacity-40" />
+        </div>
+
         <div className="max-w-6xl mx-auto relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-16"
+            className="text-center mb-14"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 mb-4">
+            <h2 className="text-4xl md:text-5xl font-black text-white tracking-tight">
               Tech Stack
             </h2>
-            <div className="h-1 w-24 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full mx-auto mb-6"></div>
           </motion.div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-              className="group"
-            >
-              <div className="relative overflow-hidden rounded-[32px] bg-gradient-to-br from-[#1E293B]/60 to-[#0F172A]/60 border border-white/10 backdrop-blur-xl p-8 hover:border-blue-500/30 transition-all duration-500">
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-cyan-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            {[
+              {
+                title: "Frontend",
+                note: "Design systems, performance, accessibility",
+                accent: "from-blue-400 to-blue-600",
+                glow: "from-blue-500/10 via-blue-600/10 to-transparent",
+                border: "hover:border-blue-400/40",
+                chips: [
+                  { name: "ReactJs", icon: "⚛️" },
+                  { name: "NextJs", icon: "▲" },
+                  { name: "Recoil", icon: "🔄" },
+                  { name: "Zustand", icon: "🐻" },
+                  { name: "Redux", icon: "🔮" },
+                  { name: "React-Query", icon: "🔍" },
+                  { name: "Tailwind", icon: "💨" },
+                  { name: "Chakra-UI", icon: "⚡" },
+                  { name: "Shadcn", icon: "🎨" },
+                  { name: "Magic-UI", icon: "✨" },
+                  { name: "Material UI", icon: "🎯" },
+                ],
+              },
+              {
+                title: "Backend",
+                note: "APIs, data modeling, reliability",
+                accent: "from-blue-400 to-blue-600",
+                glow: "from-blue-500/10 via-blue-600/10 to-transparent",
+                border: "hover:border-blue-400/40",
+                chips: [
+                  { name: "Node", icon: "🟢" },
+                  { name: "Express", icon: "🚂" },
+                  { name: "MongoDB", icon: "🍃" },
+                  { name: "Mongoose", icon: "🦡" },
+                  { name: "MySQL", icon: "🐬" },
+                  { name: "Prisma", icon: "🔷" },
+                  { name: "Drizzle", icon: "💧" },
+                  { name: "Redis", icon: "🔴" },
+                  { name: "NextJs", icon: "▲" },
+                  { name: "Convex-Db", icon: "🔺" },
+                  { name: "PostgreSQL", icon: "🐘" },
+                ],
+              },
+              {
+                title: "Languages",
+                note: "Typed, performant, pragmatic",
+                accent: "from-blue-400 to-blue-600",
+                glow: "from-blue-500/10 via-blue-600/10 to-transparent",
+                border: "hover:border-blue-400/40",
+                chips: [
+                  { name: "JavaScript", icon: "JS" },
+                  { name: "TypeScript", icon: "TS" },
+                  { name: "Java", icon: "☕" },
+                  { name: "Python", icon: "🐍" },
+                  { name: "C++", icon: "C++" },
+                ],
+              },
+              {
+                title: "Other",
+                note: "Workflow, tooling, automation",
+                accent: "from-blue-400 to-blue-600",
+                glow: "from-blue-500/10 via-blue-600/10 to-transparent",
+                border: "hover:border-blue-400/40",
+                chips: [
+                  { name: "Git", icon: "🔀" },
+                  { name: "Github", icon: "🐙" },
+                  { name: "Docker", icon: "🐳" },
+                  { name: "Postman", icon: "📮" },
+                  { name: "Cloudinary", icon: "☁️" },
+                  { name: "Linux", icon: "🐧" },
+                  { name: "Socket-IO", icon: "🔌" },
+                ],
+              },
+            ].map((section, sectionIndex) => (
+              <motion.div
+                key={section.title}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.1 + sectionIndex * 0.1 }}
+                className="group"
+              >
+                <div className={`relative overflow-hidden rounded-[28px] border border-white/10 bg-gradient-to-br from-[#0E1320]/80 via-[#0B1220]/60 to-[#060A14]/80 p-7 shadow-[0_20px_60px_rgba(0,0,0,0.55)] backdrop-blur-xl transition-all duration-500 ${section.border}`}>
+                  <div className={`absolute inset-0 bg-gradient-to-br ${section.glow} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
 
-                <div className="relative z-10 mb-6">
-                  <h3 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400 mb-2">
-                    Frontend
-                  </h3>
-                  <div className="h-1 w-16 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full"></div>
-                </div>
+                  <div className="relative z-10 flex items-start justify-between gap-6">
+                    <div>
+                      <p className={`text-[11px] font-black uppercase tracking-[0.35em] text-transparent bg-clip-text bg-gradient-to-r ${section.accent}`}>
+                        {section.title}
+                      </p>
+                      <p className="mt-2 text-sm text-slate-400">{section.note}</p>
+                    </div>
+                    <div className={`h-10 w-10 rounded-2xl bg-gradient-to-br ${section.accent} opacity-20`} />
+                  </div>
 
-                <div className="relative z-10 flex flex-wrap gap-3">
-                  {[
-                    { name: "ReactJs", icon: "⚛️" },
-                    { name: "NextJs", icon: "▲" },
-                    { name: "Recoil", icon: "🔄" },
-                    { name: "Zustand", icon: "🐻" },
-                    { name: "Redux", icon: "🔮" },
-                    { name: "React-Query", icon: "🔍" },
-                    { name: "Tailwind", icon: "💨" },
-                    { name: "Chakra-UI", icon: "⚡" },
-                    { name: "Shadcn", icon: "🎨" },
-                    { name: "Magic-UI", icon: "✨" },
-                    { name: "Material UI", icon: "🎯" },
-                  ].map((tech, index) => (
-                    <motion.div
-                      key={tech.name}
-                      initial={{ opacity: 0, scale: 0.8 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: 0.1 + index * 0.05 }}
-                      whileHover={{ scale: 1.05, y: -2 }}
-                      className="group/badge relative overflow-hidden rounded-xl bg-gradient-to-br from-cyan-500/20 to-blue-500/20 border border-cyan-500/30 backdrop-blur-sm px-4 py-2.5 cursor-pointer transition-all duration-300"
-                    >
-                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover/badge:translate-x-full transition-transform duration-700"></div>
-                      <div className="relative flex items-center gap-2">
-                        <span className="text-lg">{tech.icon}</span>
-                        <span className="text-sm font-semibold text-white/90 group-hover/badge:text-white transition-colors">
+                  <div className="relative z-10 mt-6 flex flex-wrap gap-2.5">
+                    {section.chips.map((tech, index) => (
+                      <motion.div
+                        key={tech.name}
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.2 + index * 0.03 }}
+                        whileHover={{ y: -2 }}
+                        className="group/badge flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-3 py-2 text-xs font-semibold text-white/80 transition-all duration-300 hover:border-white/25 hover:bg-white/10"
+                      >
+                        <span className="flex h-6 w-6 items-center justify-center rounded-full bg-white/10 text-[11px] font-bold">
+                          {tech.icon}
+                        </span>
+                        <span className="text-[12px] font-semibold tracking-wide text-white/90">
                           {tech.name}
                         </span>
-                      </div>
-                    </motion.div>
-                  ))}
+                      </motion.div>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-              className="group"
-            >
-              <div className="relative overflow-hidden rounded-[32px] bg-gradient-to-br from-[#1E293B]/60 to-[#0F172A]/60 border border-white/10 backdrop-blur-xl p-8 hover:border-green-500/30 transition-all duration-500">
-                <div className="absolute inset-0 bg-gradient-to-br from-green-500/5 via-emerald-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-
-                <div className="relative z-10 mb-6">
-                  <h3 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-400 mb-2">
-                    Backend
-                  </h3>
-                  <div className="h-1 w-16 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full"></div>
-                </div>
-
-                <div className="relative z-10 flex flex-wrap gap-3">
-                  {[
-                    { name: "Node", icon: "🟢" },
-                    { name: "Express", icon: "🚂" },
-                    { name: "MongoDB", icon: "🍃" },
-                    { name: "Mongoose", icon: "🦡" },
-                    { name: "MySQL", icon: "🐬" },
-                    { name: "Prisma", icon: "🔷" },
-                    { name: "Drizzle", icon: "💧" },
-                    { name: "Redis", icon: "🔴" },
-                    { name: "NextJs", icon: "▲" },
-                    { name: "Convex-Db", icon: "🔺" },
-                    { name: "PostgreSQL", icon: "🐘" },
-                  ].map((tech, index) => (
-                    <motion.div
-                      key={tech.name}
-                      initial={{ opacity: 0, scale: 0.8 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: 0.2 + index * 0.05 }}
-                      whileHover={{ scale: 1.05, y: -2 }}
-                      className="group/badge relative overflow-hidden rounded-xl bg-gradient-to-br from-green-500/20 to-emerald-500/20 border border-green-500/30 backdrop-blur-sm px-4 py-2.5 cursor-pointer transition-all duration-300"
-                    >
-                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover/badge:translate-x-full transition-transform duration-700"></div>
-                      <div className="relative flex items-center gap-2">
-                        <span className="text-lg">{tech.icon}</span>
-                        <span className="text-sm font-semibold text-white/90 group-hover/badge:text-white transition-colors">
-                          {tech.name}
-                        </span>
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.3 }}
-              className="group"
-            >
-              <div className="relative overflow-hidden rounded-[32px] bg-gradient-to-br from-[#1E293B]/60 to-[#0F172A]/60 border border-white/10 backdrop-blur-xl p-8 hover:border-yellow-500/30 transition-all duration-500">
-                <div className="absolute inset-0 bg-gradient-to-br from-yellow-500/5 via-orange-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-
-                <div className="relative z-10 mb-6">
-                  <h3 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-400 mb-2">
-                    Languages
-                  </h3>
-                  <div className="h-1 w-16 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-full"></div>
-                </div>
-
-                <div className="relative z-10 flex flex-wrap gap-3">
-                  {[
-                    { name: "JavaScript", icon: "JS" },
-                    { name: "TypeScript", icon: "TS" },
-                    { name: "Java", icon: "☕" },
-                    { name: "Python", icon: "🐍" },
-                    { name: "C++", icon: "C++" },
-                  ].map((tech, index) => (
-                    <motion.div
-                      key={tech.name}
-                      initial={{ opacity: 0, scale: 0.8 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: 0.3 + index * 0.05 }}
-                      whileHover={{ scale: 1.05, y: -2 }}
-                      className="group/badge relative overflow-hidden rounded-xl bg-gradient-to-br from-yellow-500/20 to-orange-500/20 border border-yellow-500/30 backdrop-blur-sm px-4 py-2.5 cursor-pointer transition-all duration-300"
-                    >
-                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover/badge:translate-x-full transition-transform duration-700"></div>
-                      <div className="relative flex items-center gap-2">
-                        <span className="text-lg font-bold">{tech.icon}</span>
-                        <span className="text-sm font-semibold text-white/90 group-hover/badge:text-white transition-colors">
-                          {tech.name}
-                        </span>
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.4 }}
-              className="group"
-            >
-              <div className="relative overflow-hidden rounded-[32px] bg-gradient-to-br from-[#1E293B]/60 to-[#0F172A]/60 border border-white/10 backdrop-blur-xl p-8 hover:border-purple-500/30 transition-all duration-500">
-                <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 via-pink-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-
-                <div className="relative z-10 mb-6">
-                  <h3 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400 mb-2">
-                    Other
-                  </h3>
-                  <div className="h-1 w-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full"></div>
-                </div>
-
-                <div className="relative z-10 flex flex-wrap gap-3">
-                  {[
-                    { name: "Git", icon: "🔀" },
-                    { name: "Github", icon: "🐙" },
-                    { name: "Docker", icon: "🐳" },
-                    { name: "Postman", icon: "📮" },
-                    { name: "Cloudinary", icon: "☁️" },
-                    { name: "Linux", icon: "🐧" },
-                    { name: "Socket-IO", icon: "🔌" },
-                  ].map((tech, index) => (
-                    <motion.div
-                      key={tech.name}
-                      initial={{ opacity: 0, scale: 0.8 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: 0.4 + index * 0.05 }}
-                      whileHover={{ scale: 1.05, y: -2 }}
-                      className="group/badge relative overflow-hidden rounded-xl bg-gradient-to-br from-purple-500/20 to-pink-500/20 border border-purple-500/30 backdrop-blur-sm px-4 py-2.5 cursor-pointer transition-all duration-300"
-                    >
-                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover/badge:translate-x-full transition-transform duration-700"></div>
-                      <div className="relative flex items-center gap-2">
-                        <span className="text-lg">{tech.icon}</span>
-                        <span className="text-sm font-semibold text-white/90 group-hover/badge:text-white transition-colors">
-                          {tech.name}
-                        </span>
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
-              </div>
-            </motion.div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>

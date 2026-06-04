@@ -6,66 +6,40 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary: 262 83% 74%;
+    --background: 222 47% 4%;
+    --foreground: 210 40% 98%;
+    --card: 222 47% 6%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222 47% 6%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 221 83% 53%;
     --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 262 83% 74%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-    --destructive: 0 84.2% 60.2%;
+    --secondary: 223 30% 12%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 223 30% 12%;
+    --muted-foreground: 215 20% 65%;
+    --accent: 221 83% 53%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 262 83% 74%;
+    --border: 223 24% 18%;
+    --input: 223 24% 18%;
+    --ring: 221 83% 53%;
     --radius: 0.5rem;
   }
 
   body {
-    @apply bg-[#030303] text-foreground font-inter overflow-x-hidden;
+    background:
+      radial-gradient(circle at 88% 12%, rgba(37, 99, 235, 0.16), transparent 34rem),
+      linear-gradient(180deg, #02050c 0%, #050913 46%, #02050c 100%);
+    color: hsl(var(--foreground));
+    font-family: "Inter", sans-serif;
+    overflow-x: hidden;
+    min-width: 320px;
   }
 
-  .bg-mesh {
-    background: 
-      radial-gradient(at 0% 0%, hsla(253,16%,7%,1) 0, transparent 50%), 
-      radial-gradient(at 50% 0%, hsla(225,39%,30%,0.2) 0, transparent 50%), 
-      radial-gradient(at 100% 0%, hsla(339,49%,30%,0.15) 0, transparent 50%),
-      radial-gradient(at 0% 100%, hsla(225,39%,30%,0.15) 0, transparent 50%),
-      radial-gradient(at 100% 100%, hsla(253,16%,7%,1) 0, transparent 50%);
-  }
-
-  .noise-overlay {
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-    opacity: 0.05;
-    pointer-events: none;
-  }
-
-  .grid-pattern {
-    background-size: 50px 50px;
-    background-image: 
-      linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-  }
-
-  .aurora-blob {
-    filter: blur(80px);
-    border-radius: 50%;
-    opacity: 0.35;
-    mix-blend-mode: screen;
-    animation: aurora-float 20s infinite alternate ease-in-out;
-  }
-
-  @keyframes aurora-float {
-    0% { transform: translate(0, 0) scale(1); }
-    50% { transform: translate(100px, 50px) scale(1.1); }
-    100% { transform: translate(-50px, 100px) scale(0.9); }
+  #root {
+    min-height: 100vh;
+    background: transparent;
   }
 }
-
